@@ -1,0 +1,23 @@
+{
+    "hero": {
+        "title": "Effortless Invoicing",
+        "subtitle": "Generate, send, and manage your invoices in seconds.",
+        "ctaButton": "Get Started"
+    },
+
+    "sections": {
+        "title": "Key Features",
+        "section1": {
+            "subtitle": "Create Invoices",
+            "description": "Build professional invoices with customizable templates."
+        },
+        "section2": {
+            "subtitle": "Track Payments",
+            "description": "Monitor payment statuses and send automated reminders."
+        },
+        "section3": {
+            "subtitle": "Detailed Reports",
+            "description": "Get insights on your revenue, clients, and outstanding balances."
+        }
+    }
+}

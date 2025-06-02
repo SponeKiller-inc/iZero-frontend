@@ -1,0 +1,191 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem; /* výška navbaru */
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e5e5e5;
+  box-sizing: border-box;
+}
+
+.homepage {
+  position: absolute;
+  top: 4rem;           
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.heroSection {
+  width: 100%;
+  height: 55vh;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.heroSection h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.heroSection p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: #ff8a00;
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  border-radius: 2rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.ctaButton:hover {
+  background-color: #e07600;
+  transform: translateY(-2px);
+}
+
+.features,
+.about,
+.pricing {
+  width: 100%;
+  padding: 4rem 1rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.features {
+  background-color: #f9f9ff;
+}
+
+.about {
+  background-color: #fffefa;
+}
+
+.pricing {
+  background-color: #fafafa;
+}
+
+.features h2,
+.about h2,
+.pricing h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #4e54c8;
+}
+
+.features p,
+.about p,
+.pricing p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+.featureList,
+.planList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featureItem,
+.planItem {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featureItem:hover,
+.planItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.featureItem h3,
+.planItem h3 {
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+  color: #333;
+}
+
+.featureItem p,
+.planItem p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background-color: #4e54c8;
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
+/* Footer */
+.footerContainer {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+/* Responsivní úpravy */
+@media (max-width: 768px) {
+  .heroSection h1 {
+    font-size: 2rem;
+  }
+  .heroSection p {
+    font-size: 1.25rem;
+  }
+  .ctaButton {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  .features,
+  .about,
+  .pricing {
+    padding: 2rem 1rem;
+  }
+  .features h2,
+  .about h2,
+  .pricing h2 {
+    font-size: 2rem;
+  }
+  .featureList,
+  .planList {
+    gap: 1rem;
+  }
+  .featureItem,
+  .planItem {
+    padding: 1.5rem;
+  }
+}
