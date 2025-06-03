@@ -1,13 +1,14 @@
 name: Vite & React lint test
 
 on:
-  pull_request:  
+  pull_request:
     branches:
       - main
 
 jobs:
   lint:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -22,5 +23,5 @@ jobs:
         run: npm ci
 
       - name: Run ESLint
-      working-directory: ./app
+        working-directory: ./app
         run: npm run lint
