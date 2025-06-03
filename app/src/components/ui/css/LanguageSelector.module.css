@@ -1,0 +1,35 @@
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem 0.5rem 0.3rem;
+  font-size: 0.875rem;
+  color: #333333;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23333' d='M5.25 7.5l4.5 4.5 4.5-4.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0rem center;
+  background-size: 1.2rem;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #1e90ff;
+  box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.25);
+}
+
+/* Responsive width */
+@media (max-width: 768px) {
+  .select {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  .select {
+    width: auto;
+  }
+}

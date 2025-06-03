@@ -1,0 +1,22 @@
+{
+    "hero": {
+        "title": "Snadná fakturace",
+        "subtitle": "Generujte, odesílejte a spravujte své faktury během několika sekund.",
+        "ctaButton": "Začít"
+    },
+     "sections": {
+        "title": "Klíčové vlastnosti",
+        "section1": {
+            "subtitle": "Vytvářejte faktury",
+            "description": "Vytvářejte profesionální faktury s přizpůsobitelnými šablonami."
+        },
+        "section2": {
+            "subtitle": "Sledovat platby",
+            "description": "Sledujte stavy plateb a zasílejte automatické připomínky."
+        },
+        "section3": {
+            "subtitle": "Podrobné zprávy",
+            "description": "Získejte přehled o svých tržbách, klientech a neuhrazených zůstatcích."
+        }
+    }
+}
