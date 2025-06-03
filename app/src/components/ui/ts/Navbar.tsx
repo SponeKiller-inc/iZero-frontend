@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         <a href='/' className={styles.logo}>
-          <img src='iZero-logo.png' width='100'></img>
+          <img src='iZero-logo.png' width='100' alt='Project Zero logo'></img>
         </a>
 
         <button
