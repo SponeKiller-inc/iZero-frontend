@@ -22,4 +22,5 @@ jobs:
         run: npm ci
 
       - name: Run ESLint
+      working-directory: ./app
         run: npm run lint
