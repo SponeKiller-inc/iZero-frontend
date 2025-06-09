@@ -10,6 +10,5 @@ export const registerUser = async (
         '/users/local', 
         userData
       );
-    console.log("var");
     return response.status;
 };
