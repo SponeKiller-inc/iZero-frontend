@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import styles from '../css/Navbar.module.css';
 import LanguageSelector from './LanguageSelector';
@@ -9,11 +10,11 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation('components/Navbar');
   const links = [
-    { label: t('Home'), href: '/' },
-    { label: t('About'), href: '/about' },
-    { label: t('Contact'), href: '/contact' },
-    { label: t('Register'), href: '/register' },
-    { label: t('Login'), href: '/login' }
+    { label: t('Home'), to: '/' },
+    { label: t('About'), to: '/about' },
+    { label: t('Contact'), to: '/contact' },
+    { label: t('Register'), to: '/register' },
+    { label: t('Login'), to: '/login' }
   ];
 
 
@@ -21,9 +22,9 @@ const Navbar: React.FC = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        <a href='/' className={styles.logo}>
+        <Link to='/' className={styles.logo}>
           <img src='iZero-logo.png' width='100' alt='Project Zero logo'></img>
-        </a>
+        </Link>
 
         <button
           className={styles.toggle}
@@ -36,8 +37,8 @@ const Navbar: React.FC = () => {
         <div className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
           <ul className={styles.links}>
             {links.map(link => (
-              <li key={link.href} className={styles.linkItem}>
-                <a href={link.href} className={styles.link}>{link.label}</a>
+              <li key={link.to} className={styles.linkItem}>
+                <Link to={link.to} className={styles.link}>{link.label}</Link>
               </li>
             ))}
           </ul>
