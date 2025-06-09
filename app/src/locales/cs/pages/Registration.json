@@ -10,6 +10,6 @@
         "201": "Uživatel úspěšně zaregistrován",
         "4xx": "Něco se pokazilo",
         "409": "Uživatel s tímto emailem již existuje",
-        "500": "Servrová chyba, zkus to prosím znovu později"
+        "500": "Serverová chyba, zkus to prosím znovu později"
     }
 }
