@@ -15,5 +15,5 @@ export interface CredentialResponse {
 export interface Props {
   onLogin?: (token: string) => void;
   onRegister?: (token: string) => void;
-  mode?: "login" | "register";
+  mode?: 'login' | 'register';
 }

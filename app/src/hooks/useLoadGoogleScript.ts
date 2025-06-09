@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export function useLoadGoogleScript(): boolean {
   const { i18n } = useTranslation();
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const existingScript = document.getElementById("google-identity-script") as HTMLScriptElement | null;
+    const existingScript = document.getElementById('google-identity-script') as HTMLScriptElement | null;
 
     if (!existingScript) {
-      const script = document.createElement("script");
-      script.id = "google-identity-script";
+      const script = document.createElement('script');
+      script.id = 'google-identity-script';
       script.src = `https://accounts.google.com/gsi/client?hl=${i18n.language}`;
       script.async = true;
       script.defer = true;
@@ -25,7 +25,7 @@ export function useLoadGoogleScript(): boolean {
       if (
         window.google &&
         window.google.accounts &&
-        typeof window.google.accounts.id === "object"
+        typeof window.google.accounts.id === 'object'
       ) {
         setLoaded(true);
       } else {

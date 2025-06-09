@@ -1,5 +1,5 @@
 import { Route } from './types'
-import Homepage from "@/features/homepage/Homepage"
+import Homepage from '@/features/homepage/Homepage'
 import Registration from '@/features/registration/Registration';
 
 

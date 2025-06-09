@@ -1,9 +1,9 @@
-import { InitOptions, CredentialResponse } from "@/types/google";
+import { InitOptions, CredentialResponse } from '@/types/google';
 
 
 export function initGoogleAuth(options: InitOptions) {
   if (!window.google) {
-    console.error("Google API not loaded");
+    console.error('Google API not loaded');
     return;
   }
 
@@ -17,10 +17,9 @@ export function initGoogleAuth(options: InitOptions) {
 }
 
 export function renderGoogleButton(elementId: string) {
-  console.log("jsem tady")
   if (!window.google) return;
   window.google.accounts.id.renderButton(
     document.getElementById(elementId),
-    { theme: "outline", size: "large"}
+    { theme: 'outline', size: 'large'}
   );
 }

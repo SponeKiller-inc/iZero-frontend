@@ -1,10 +1,10 @@
-import { FC } from "react";
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import styles from "./Homepage.module.css";
-import Navbar from "@/components/ui/ts/Navbar";
-import Footer from "@/components/ui/ts/Footer";
+import styles from './Homepage.module.css';
+import Navbar from '@/components/ui/ts/Navbar';
+import Footer from '@/components/ui/ts/Footer';
 
 const Homepage: FC = () => {
   const { t } = useTranslation('pages/Homepage');
@@ -17,12 +17,12 @@ const Homepage: FC = () => {
         <header className={styles.heroSection}>
           <h1>{ t('hero.title') }</h1>
           <p>{ t('hero.subtitle') }</p>
-          <Link to="/register" className={styles.ctaButton}>
+          <Link to='/register' className={styles.ctaButton}>
             { t('hero.ctaButton') }
           </Link>
         </header>
 
-        <section id="features" className={styles.features}>
+        <section id='features' className={styles.features}>
           <h2>{ t('sections.title') }</h2>
           <div className={styles.featureList}>
             <div className={styles.featureItem}>
