@@ -33,7 +33,7 @@ export function useLoadGoogleScript(): boolean {
       }
     };
 
-    // Wait until google is inicialized
+    // Wait until google is initialized
     waitGoogle();
 
     return () => {
