@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BoxArrowLeft } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 
 import { GoogleButton } from '@/components/ui/ts/GoogleButton';
 import { useHandlers } from './hooks/useHandlers';
@@ -16,15 +17,15 @@ const Registration: React.FC = () => {
   return (
     <div className={styles.registrationPage}>
       <div className={styles.logoWrapper}>
-        <a href='/' className={styles.logoLink}>
+        <Link to='/' className={styles.logoLink}>
           <img src='iZero-logo.png' width='100' alt='Project Zero logo' />
-        </a>
+        </Link>
       </div>
 
       <div className={styles.formContainer}>
-        <a href='/' className={styles.exitIcon}>
+        <Link to='/' className={styles.exitIcon}>
           <BoxArrowLeft className={styles.exitSvg} />
-        </a>
+        </Link>
 
         <form onSubmit={handleSubmit} className={styles.registrationForm}>
           <h2 className={styles.formTitle}>{ t('title') }</h2>

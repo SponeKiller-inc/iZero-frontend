@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import "../css/Footer.css";
 
@@ -8,9 +9,9 @@ const Footer = () => {
     <footer className="footer">
       <p>© {new Date().getFullYear()} Project-Zero, inc. All Rights Reserved.</p>
       <ul className="footer-links">
-        <li><a href="/privacy">{ t('privacyPolicy') }</a></li>
-        <li><a href="/terms">{ t('termsService') }</a></li>
-        <li><a href="/contact">{ t('contactUs') }</a></li>
+        <li><Link to="/privacy">{ t('privacyPolicy') }</Link></li>
+        <li><Link to="/terms">{ t('termsService') }</Link></li>
+        <li><Link to="/contact">{ t('contactUs') }</Link></li>
       </ul>
     </footer>
   );

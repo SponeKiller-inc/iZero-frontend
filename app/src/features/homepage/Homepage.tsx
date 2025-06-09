@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import styles from "./Homepage.module.css";
 import Navbar from "@/components/ui/ts/Navbar";
@@ -16,9 +17,9 @@ const Homepage: FC = () => {
         <header className={styles.heroSection}>
           <h1>{ t('hero.title') }</h1>
           <p>{ t('hero.subtitle') }</p>
-          <a href="/register" className={styles.ctaButton}>
+          <Link to="/register" className={styles.ctaButton}>
             { t('hero.ctaButton') }
-          </a>
+          </Link>
         </header>
 
         <section id="features" className={styles.features}>
