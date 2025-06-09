@@ -1,0 +1,15 @@
+{
+    "title": "Register",
+    "email": "Email",
+    "emailHelp": "Enter your email",
+    "password": "Password",
+    "passwordHelp": "Enter your password",
+    "signUp": "Sign Up",
+
+    "http": {
+        "201": "User registered successfully",
+        "4xx": "Something went wrong",
+        "409": "User already exists",
+        "500": "Server error, try again later"
+    }
+}

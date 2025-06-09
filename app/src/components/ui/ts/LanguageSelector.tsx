@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import i18n from 'i18next';
 
-import localeList from "@/locales/index.json";
-import styles from "../css/LanguageSelector.module.css";
+import localeList from '@/locales/index.json';
+import styles from '../css/LanguageSelector.module.css';
 
 const LanguageSelector: React.FC = () => {
 
