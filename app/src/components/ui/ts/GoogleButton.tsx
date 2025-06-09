@@ -14,7 +14,6 @@ export const GoogleButton: React.FC<Props> = ({
 
   useEffect(() => {
     // Wait until google script is loaded 
-    console.log(loaded)
     if (!loaded) return;
 
     const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
