@@ -6,10 +6,9 @@ import { refreshToken } from '../utils/rqUtils.js';
 import { logout } from '../utils/logout.js';
 
 const apiSecure = axios.create({
-  baseURL: process.env.REACT_APP_API_URL+process.env.REACT_APP_API_ROUTER,
+  baseURL: import.meta.env.VITE_API_URL+import.meta.env.VITE_API_ROUTER,
 });
 
-// Request interceptor – přidání tokenu
 apiSecure.interceptors.request.use((config) => {
   const token = sessionStorage.getItem('accessToken');
   if (token) {
