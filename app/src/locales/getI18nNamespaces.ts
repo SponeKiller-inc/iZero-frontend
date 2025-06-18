@@ -1,4 +1,4 @@
-import localeList from '@/locales/index.json';
+import localeList from './index.json';
 
 export function collectTranslationNamespaces(): string[] {
   const namespaces = new Set<string>();
@@ -7,12 +7,12 @@ export function collectTranslationNamespaces(): string[] {
 
   // 1. glob all json file 
   const allPageFiles = import.meta.glob(
-    '@/locales/*/pages/*.json', 
+    '/locales/*/pages/*.json', 
     { eager: true }
   );
-
+  
   const allComponentFiles = import.meta.glob(
-    '@/locales/*/components/*.json', 
+    '/locales/*/components/*.json', 
     { eager: true }
   );
 
