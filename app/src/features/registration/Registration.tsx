@@ -9,7 +9,14 @@ import styles from './Registration.module.css';
 
 const Registration: React.FC = () => {
   const { t } = useTranslation('pages/Registration');
-  const { formData, errorMessage, message, handleChange, handleSubmit } = useHandlers({
+  const { 
+    formData, 
+    errorMessage, 
+    message, 
+    handleChange, 
+    handleSubmitLocal, 
+    handleSubmitGoogle 
+  } = useHandlers({
     email: '',
     password: '',
   });
@@ -27,7 +34,7 @@ const Registration: React.FC = () => {
           <BoxArrowLeft className={styles.exitSvg} />
         </Link>
 
-        <form onSubmit={handleSubmit} className={styles.registrationForm}>
+        <form onSubmit={handleSubmitLocal} className={styles.registrationForm}>
           <h2 className={styles.formTitle}>{ t('title') }</h2>
           <div className={styles.formGroup}>
             <label htmlFor="email" className={styles.formLabel}>
@@ -65,7 +72,7 @@ const Registration: React.FC = () => {
             { t('signUp') }
           </button>
            <p className={styles.orText}>OR</p>
-          <GoogleButton />
+          <GoogleButton onRegister={handleSubmitGoogle} mode='register'/>
           {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
           {message && <p className={styles.successMessage}>{message}</p>}
         </form>
