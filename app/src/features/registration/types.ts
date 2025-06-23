@@ -10,5 +10,6 @@ export interface UseHandlersReturn {
   errorMessage: string;
   message: string;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: (e: FormEvent<HTMLFormElement>) => Promise<void>;
+  handleSubmitLocal: (e: FormEvent<HTMLFormElement>) => Promise<void>;
+  handleSubmitGoogle: (token: string) => Promise<void>;
 }

@@ -2,7 +2,7 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { isAxiosError } from 'axios';
 
-import { registerUser } from '../services/registerService';
+import { registerUserLocal, registerUserGoogle } from '../services/registerService';
 import { UseHandlersReturn, RegisterUserData } from '../types';
 
 export function useHandlers(
@@ -22,31 +22,63 @@ export function useHandlers(
     }));
   };
 
-  const handleSubmit = async (
+  const handleErrCode = (
+    status: number
+  ) => {
+ 
+    let errMsg = t('http.4xx')
+    if (status === 409) errMsg = t('http.409')
+    if (status === 500) errMsg = t('http.500')
+
+    setErrorMessage(errMsg)
+    setMessage('')
+  }
+
+  const handleSubmitLocal = async (
     e: FormEvent<HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault();
 
     try {
-      await registerUser(formData);
+      await registerUserLocal(formData);
       setFormData(initialValues);
       setMessage(t('http.201'));
       setErrorMessage('');
     } catch (error: unknown) {
-      let status: number | undefined;
-
-      if (isAxiosError(error) && error.response) {
-        status = error.response.status;
+      if (isAxiosError(error)) {
+        const status = error.response?.status ?? 500
+        handleErrCode(status)
+      } else {
+        handleErrCode(500)
       }
-
-      let errMsg = t('http.4xx');
-      if (status === 409) errMsg = t('http.409');
-      if (status === 500) errMsg = t('http.500');
-
-      setErrorMessage(errMsg);
-      setMessage('');
     }
   };
 
-  return { formData, errorMessage, message, handleChange, handleSubmit };
+  const handleSubmitGoogle = async (
+    token: string
+  ): Promise<void> => {
+
+
+    try {
+      await registerUserGoogle(token);
+      setMessage(t('http.201'));
+      setErrorMessage('');
+    } catch (error: unknown) {
+      if (isAxiosError(error)) {
+        const status = error.response?.status ?? 500
+        handleErrCode(status)
+      } else {
+        handleErrCode(500)
+      }
+    }
+  };
+
+  return { 
+    formData, 
+    errorMessage, 
+    message, 
+    handleChange, 
+    handleSubmitLocal, 
+    handleSubmitGoogle 
+  };
 }
