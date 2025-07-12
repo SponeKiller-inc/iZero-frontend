@@ -9,5 +9,5 @@ export const publicRoutes: Route[] = [
     {path: '/',  element: <Homepage />},
     {path: '/register',  element: <Registration />},
     {path: '/login',  element: <Login />},
-    {path: '/*',  element: <NotFoundPage />},
+    {path: '*',  element: <NotFoundPage />},
 ];
