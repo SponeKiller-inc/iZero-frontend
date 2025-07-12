@@ -1,0 +1,16 @@
+{
+    "title": "Login",
+    "email": "Email",
+    "emailHelp": "Enter your email",
+    "password": "Password",
+    "passwordHelp": "Enter your password",
+    "signin": "Sign In",
+    "or": "OR",
+
+    "http": {
+        "200": "User successfully logged in",
+        "4xx": "Something went wrong",
+        "401": "Wrong e-mail or password",
+        "500": "Server error, try again later"
+    }
+}

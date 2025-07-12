@@ -1,0 +1,16 @@
+{
+    "title": "Přihlášení",
+    "email": "Email",
+    "emailHelp": "Zadejte svůj e-mail",
+    "password": "Heslo",
+    "passwordHelp": "Zadejte svoje heslo",
+    "signin": "Přihlásit se",
+    "or": "NEBO",
+
+    "http": {
+        "200": "Uživatel úspěšně přihlášen",
+        "4xx": "Něco se pokazilo",
+        "401": "Nesprávné jméno nebo heslo",
+        "500": "Serverová chyba, zkus to prosím znovu později"
+    }
+}

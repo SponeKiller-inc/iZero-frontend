@@ -71,7 +71,7 @@ const Registration: React.FC = () => {
           <button type="submit" className={styles.submitBtn}>
             { t('signUp') }
           </button>
-           <p className={styles.orText}>OR</p>
+          <p className={styles.orText}>{ t('or') }</p>
           <GoogleButton onRegister={handleSubmitGoogle} mode='register'/>
           {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
           {message && <p className={styles.successMessage}>{message}</p>}
