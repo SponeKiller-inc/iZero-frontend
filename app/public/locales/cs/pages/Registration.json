@@ -5,7 +5,8 @@
     "password": "Heslo",
     "passwordHelp": "Zadejte svoje heslo",
     "signUp": "Zaregistrovat se",
-
+    "or": "NEBO",
+    
     "http": {
         "201": "Uživatel úspěšně zaregistrován",
         "4xx": "Něco se pokazilo",

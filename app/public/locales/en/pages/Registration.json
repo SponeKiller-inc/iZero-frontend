@@ -5,6 +5,7 @@
     "password": "Password",
     "passwordHelp": "Enter your password",
     "signUp": "Sign Up",
+    "or": "OR",
 
     "http": {
         "201": "User registered successfully",
