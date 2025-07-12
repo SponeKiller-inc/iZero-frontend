@@ -75,7 +75,7 @@ const Login: React.FC = () => {
           {/* Login via Google */}
 
           <p className={styles.orText}>{ t('or') }</p>
-          <GoogleButton onRegister={googleHandlers.handleSubmit} mode='login'/>
+          <GoogleButton onLogin={googleHandlers.handleSubmit} mode='login'/>
 
           {/* Local Messages */}
           {
