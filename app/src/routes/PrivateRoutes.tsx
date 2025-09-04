@@ -1,8 +1,8 @@
 import { Route } from './types'
-import Homepage from '@/features/homepage/Homepage'
+import Dashboard from '@/features/dashboard/Dashboard';
 
 
 export const privateRoutes: Route[] = [
-    {path: '/',  element: <Homepage />},
+    {path: '/dashboard',  element: <Dashboard />},
 
 ];

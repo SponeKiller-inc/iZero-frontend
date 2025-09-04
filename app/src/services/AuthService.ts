@@ -71,6 +71,9 @@ export class AuthService {
     this.storage.delete(AuthService.TOKEN_KEY);
 
     // call to backend to logout user
-    return true;
+    // if logout successful return true
+    // todo after api will be created 
+
+    return false;
   }
 }

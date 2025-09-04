@@ -1,13 +1,17 @@
 import { Navigate } from 'react-router-dom';
 
+import useAuth from '@/hooks/useAuth';
+import LoadingSpinner from '@/components/ui/ts/LoadingSpinner';
 import { SecureRouteProps } from './types';
-import authService from '@/services/AuthService';
 
 function SecureRoute({ children }: SecureRouteProps) {
-    const isAuthenticated = authService.isAuthenticated();
+    const { isAuthenticated, loading } = useAuth();
 
-    
-    if (!isAuthenticated) {
+    if (loading) {
+        return <LoadingSpinner />
+    }
+
+    if (!loading && !isAuthenticated) {
         return <Navigate to="/login" />;  
     }
 
