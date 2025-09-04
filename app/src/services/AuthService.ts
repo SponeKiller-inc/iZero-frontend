@@ -29,7 +29,7 @@ export class AuthService {
   }
 
   /**
-   * Verify validy of accessToken
+   * Verify validity of accessToken
    * @returns {boolean} True if token is valid, otherwise false
    */
   private isAuthenticated(): boolean {
