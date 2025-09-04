@@ -67,7 +67,7 @@ export class AuthService {
    *
    * @returns {Promise<boolean>} True if user successfully logout
    */
-  private async logout(): Promise<boolean> {
+  public async logout(): Promise<boolean> {
     this.storage.delete(AuthService.TOKEN_KEY);
 
     // call to backend to logout user
