@@ -22,7 +22,7 @@ export class AuthService {
    */
   public async ensureAuthenticated(): Promise<boolean> {
     if (this.isAuthenticated()) {
-      return true
+      return true;
     }
 
     return await this.refreshToken();
