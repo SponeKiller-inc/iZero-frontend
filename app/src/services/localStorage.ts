@@ -22,7 +22,7 @@ export class LocalStorageService {
   }
 
   /**
-   * Delete variable if existed in local storage 
+   * Delete variable if it exists in local storage 
    * @param keys - name of variable in user local storage
    */
   delete(key: string): void {
