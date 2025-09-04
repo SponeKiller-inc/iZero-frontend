@@ -4,5 +4,5 @@ export interface AccessTokenData {
 }
 
 export interface JwtTokenPayload {
-  exp: number
+  exp: number;
 }
