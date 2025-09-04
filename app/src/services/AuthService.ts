@@ -9,7 +9,7 @@ export class AuthService {
   private static readonly TOKEN_KEY = LOCAL_STORAGE.accessToken.key;
   
   constructor(storage: LocalStorageService) {
-    this.storage = storage
+    this.storage = storage;
   }
   /**
    * Ensures that the user is authenticated.
