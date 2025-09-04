@@ -1,14 +1,17 @@
 import { useRoutes } from 'react-router-dom';
 
 import { Route } from './types'
-import { publicRoutes } from './PublicRoutes';
-import { privateRoutes } from './PrivateRoutes';
-//import SecureRoutes from '../components/routes/SecureRoutes';
+import { publicRoutes } from './publicRoutes';
+import { privateRoutes } from './privateRoutes';
+import SecureRoute from './SecureRoute';
 
 export const AppRoutes = () => {
 
   const protectedRoutes = privateRoutes.map((route: Route) => ({
     ...route,
+    element: (
+        <SecureRoute>{route.element}</SecureRoute>
+    ),
   }));
 
   const routing = useRoutes([...publicRoutes, ...protectedRoutes]);

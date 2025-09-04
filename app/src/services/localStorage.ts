@@ -20,6 +20,14 @@ export class LocalStorageService {
       ? (JSON.parse(json) as T)
       : null;
   }
+
+  /**
+   * Delete variable if it exists in local storage 
+   * @param keys - name of variable in user local storage
+   */
+  delete(key: string): void {
+    localStorage.removeItem(key);
+  }
 }
 
 export const LOCAL_STORAGE = Object.freeze({

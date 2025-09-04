@@ -1,0 +1,127 @@
+.dashboardPage {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #3498db, #2ecc71);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.dashboardHeader h1 {
+  margin: 0;
+  font-size: 24px;
+  color: white;
+}
+
+/* User menu */
+.userMenu {
+  position: relative;
+}
+
+.userIcon {
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.userIcon:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  width: 200px;
+  z-index: 1000;
+}
+
+.dropdownMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdownMenu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.dropdownMenu li:hover {
+  background-color: #f0f0f0;
+}
+
+.dashboardContent {
+  margin-top: 20px;
+}
+
+.dashboardWidgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.widget {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.widget h2 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.widget p {
+  margin: 0;
+  color: #666;
+}
+
+.startChat {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chatButton {
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  color: white;
+  border: none;
+  padding: 40px 120px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 25px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.chatButton:hover {
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  transform: scale(1.05);
+}

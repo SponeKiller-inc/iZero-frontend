@@ -7,7 +7,7 @@ export const registerUserLocal = async (
 ): Promise<number> => {
   const response: AxiosResponse<void> = 
     await api.post<void>(
-      '/users/local', 
+      '/auth/local', 
       userData
     );
   return response.status;
@@ -20,7 +20,7 @@ export const registerUserGoogle = async (
 
   const response: AxiosResponse<void> = 
     await api.post<void>(
-      '/users/google', 
+      '/auth/google', 
       body
     );
   return response.status;
