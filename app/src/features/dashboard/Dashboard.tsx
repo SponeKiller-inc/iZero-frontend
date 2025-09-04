@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { logout } from '../../utils/logout.js';
+import { logout } from '../../utils/logout';
 import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
