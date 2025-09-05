@@ -1,7 +1,7 @@
 import { useRoutes } from 'react-router-dom';
 
 import { Route } from './types'
-import { publicRoutes } from './publicRoutess';
+import { publicRoutes } from './publicRoutes';
 import { privateRoutes } from './privateRoutes';
 import SecureRoute from './SecureRoute';
 
