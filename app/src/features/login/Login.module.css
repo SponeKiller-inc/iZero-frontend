@@ -119,23 +119,3 @@
   font-size: 0.875rem;
   color: #555;
 }
-
-.errorMessage {
-  margin-top: 16px;
-  color: #d8000c;
-  background-color: #ffd2d2;
-  padding: 8px;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.successMessage {
-  margin-top: 16px;
-  color: #4f8a10;
-  background-color: #dff2bf;
-  padding: 8px;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  text-align: center;
-}
