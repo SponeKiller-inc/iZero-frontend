@@ -1,7 +1,7 @@
-// useHandlersLocal.ts
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { isAxiosError } from 'axios';
+import { toast } from 'react-toastify';
 
 import { LoginService } from '../services/loginService';
 import { LoginUserDataLocal, UseHandlersLocalReturn } from '../types';
@@ -12,8 +12,6 @@ export function useHandlersLocal(
 ): UseHandlersLocalReturn {
   const { t }  = useTranslation('pages/Login');
   const [formData, setFormData] = useState(initialValues);
-  const [message, setMessage] = useState('');
-  const [errorMessage, setError] = useState('');
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -25,29 +23,20 @@ export function useHandlersLocal(
 
     try {
       await loginService.loginLocal(formData);
-
       setFormData(initialValues);
-      setMessage(t('http.200'));
-      setError('');
+      toast.success(t('http.200'));
     } catch (err: unknown) {
       let status = 500;
       if (isAxiosError(err)) {
         status = err.response?.status ?? 500;
       }
 
-      // Error message for user 
-      let errMsg = t('http.4xx');
-      if (status === 401) errMsg = t('http.401');
-      if (status === 500) errMsg = t('http.500');
-      setError(errMsg);
-      setMessage('');
+      toast.error(t('http.' + status))
     }
   };
 
   return {
     formData,
-    message,
-    errorMessage,
     handleChange,
     handleSubmit
   };

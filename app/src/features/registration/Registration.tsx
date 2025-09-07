@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BoxArrowLeft } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
@@ -10,9 +9,7 @@ import styles from './Registration.module.css';
 const Registration: React.FC = () => {
   const { t } = useTranslation('pages/Registration');
   const { 
-    formData, 
-    errorMessage, 
-    message, 
+    formData,
     handleChange, 
     handleSubmitLocal, 
     handleSubmitGoogle 
@@ -73,8 +70,6 @@ const Registration: React.FC = () => {
           </button>
           <p className={styles.orText}>{ t('or') }</p>
           <GoogleButton onRegister={handleSubmitGoogle} mode='register'/>
-          {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
-          {message && <p className={styles.successMessage}>{message}</p>}
         </form>
       </div>
     </div>

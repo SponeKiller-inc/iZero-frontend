@@ -7,15 +7,11 @@ export interface LoginUserDataLocal {
 
 export interface UseHandlersLocalReturn {
   formData: LoginUserDataLocal;
-  message: string;
-  errorMessage: string;
   handleChange(e: ChangeEvent<HTMLInputElement>): void;
   handleSubmit(e: FormEvent<HTMLFormElement>): Promise<void>;
 }
 
 export interface UseHandlersGoogleReturn {
   formData: string;
-  message: string;
-  errorMessage: string;
   handleSubmit(userData: string): Promise<void>;
 }

@@ -7,8 +7,6 @@ export interface RegisterUserData {
 
 export interface UseHandlersReturn {
   formData: RegisterUserData;
-  errorMessage: string;
-  message: string;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
   handleSubmitLocal: (e: FormEvent<HTMLFormElement>) => Promise<void>;
   handleSubmitGoogle: (token: string) => Promise<void>;

@@ -73,41 +73,8 @@ const Login: React.FC = () => {
           </button>
 
           {/* Login via Google */}
-
           <p className={styles.orText}>{ t('or') }</p>
           <GoogleButton onLogin={googleHandlers.handleSubmit} mode='login'/>
-
-          {/* Local Messages */}
-          {
-            localHandlers.errorMessage && (
-              <p className={styles.errorMessage}>
-                {localHandlers.errorMessage}
-              </p>
-            )
-          }
-          {
-            localHandlers.message && (
-              <p className={styles.successMessage}>
-                {localHandlers.message}
-              </p>
-            )
-          }
-
-          {/* Google Messages */}
-          {
-            googleHandlers.errorMessage && (
-              <p className={styles.errorMessage}>
-                {localHandlers.errorMessage}
-              </p>
-            )
-          }
-          {
-            googleHandlers.message && (
-              <p className={styles.successMessage}>
-                {localHandlers.message}
-              </p>
-            )
-          }
         </form>
       </div>
     </div>
