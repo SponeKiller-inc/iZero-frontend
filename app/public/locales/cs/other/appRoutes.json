@@ -1,0 +1,9 @@
+{
+    "homepage": "Domu",
+    "about": "O nás",
+    "contact": "Kontakty",
+    "register": "Registrace",
+    "login": "Příhlášení",
+    "*": "Nenalezeno",
+    "dashboard": "dashboard"
+}

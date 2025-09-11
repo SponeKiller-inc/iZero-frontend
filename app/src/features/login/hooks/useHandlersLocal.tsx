@@ -2,6 +2,7 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { isAxiosError } from 'axios';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 import { LoginService } from '../services/loginService';
 import { LoginUserDataLocal, UseHandlersLocalReturn } from '../types';
@@ -12,6 +13,7 @@ export function useHandlersLocal(
 ): UseHandlersLocalReturn {
   const { t }  = useTranslation('pages/Login');
   const [formData, setFormData] = useState(initialValues);
+  const navigate = useNavigate();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -25,6 +27,7 @@ export function useHandlersLocal(
       await loginService.loginLocal(formData);
       setFormData(initialValues);
       toast.success(t('http.200'));
+      navigate('/dashboard');
     } catch (err: unknown) {
       let status = 500;
       if (isAxiosError(err)) {
