@@ -1,0 +1,6 @@
+{
+    "logout": {
+        "success": "Úspěšně odhlášen",
+        "error": "Odhlášení se nepovedlo"
+    }
+}

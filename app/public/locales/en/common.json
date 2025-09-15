@@ -1,0 +1,6 @@
+{
+    "logout": {
+        "success": "Successfully logout",
+        "error": "Unsuccessful logout"
+    }
+}

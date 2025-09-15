@@ -2,6 +2,8 @@ import { useMatches, UIMatch } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
+import UserProfile from './UserProfile'
+
 import styles from '../css/Navbar.module.css';
 
 type MatchWithHandle = UIMatch<unknown, {label: string}>;

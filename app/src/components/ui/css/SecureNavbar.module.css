@@ -1,0 +1,51 @@
+/* SecureNavbar.module.css */
+
+.navbar {
+  width: 100%;
+  height: 60px;
+  background-color: #1a1a1a; /* tmavší barva pro navbar */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #e0e0e0;
+  text-transform: capitalize;
+}
+
+.label::first-letter {
+  text-transform: uppercase;
+}
