@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import UserProfile from './UserProfile'
 
-import styles from '../css/Navbar.module.css';
+import styles from '../css/SecureNavbar.module.css';
 
 type MatchWithHandle = UIMatch<unknown, {label: string}>;
 
@@ -19,7 +19,7 @@ const SecureNavbar: React.FC = () => {
   return (
     <div className={styles.navbar}>
       <div className={styles.container}>
-        <Link to='/' className={styles.logo}>
+        <Link to='/dashboard' className={styles.logo}>
           <img src='iZero-logo.png' width='100' alt='Project Zero logo'></img>
         </Link>
         <div className={styles.label}>

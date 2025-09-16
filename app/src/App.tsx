@@ -1,14 +1,12 @@
-import { BrowserRouter } from 'react-router-dom';
+import { RouterProvider  } from 'react-router-dom';
 
-import { AppRoutes } from './routes/AppRoute';
+import routing from './routes/AppRoute';
 
 function App() {
 
     return (
       <div className='App'>
-          <BrowserRouter>
-            <AppRoutes />
-          </BrowserRouter>
+          <RouterProvider router={routing}/>
       </div>
     );
 }
