@@ -6,13 +6,13 @@
 .userIcon {
   font-size: 24px;
   cursor: pointer;
-  user-select: none;
-  border-radius: 50%;
-  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .userIcon:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
 }
 
 .dropdownMenu {

@@ -1,20 +1,17 @@
-/* Kořen sidebaru: úzký default, rozšíří se při hoveru */
 .sidebar {
-  background: linear-gradient(135deg, #eef5ff 0%, #f7fbff 100%);
-  border-right: 1px solid #e5e7eb;              /* jasné oddělení od contentu */
-  width: 56px;                                   /* jen ikony */
+  background-color: #f6fcff;
+  width: 56px;
   transition: width 180ms ease;
-  overflow: hidden;                              /* schová text mimo šířku */
-  height: 100%;                                  /* vyplní výšku .body */
+  overflow: hidden;
+  height: 100%;
   box-sizing: border-box;
   padding: 8px 6px;
 }
 
 .sidebar:hover {
-  width: 240px;                                  /* zobrazíme text + šipky */
+  width: 240px;
 }
 
-/* Seznam a položky */
 .list {
   display: flex;
   flex-direction: column;
@@ -38,11 +35,10 @@
 }
 
 .menuItem:hover {
-  background: #e6f0fa;                           /* světle modré zvýraznění */
+  background: #e6f0fa;
   box-shadow: 0 1px 3px rgba(13, 71, 161, 0.15);
 }
 
-/* Levá část: ikona + text (text defaultně skrytý) */
 .left {
   display: flex;
   align-items: center;
@@ -55,30 +51,15 @@
   flex: 0 0 auto;
 }
 
-/* Text jako "bublina" na hover položky */
 .label {
   font-size: 0.95rem;
-  color: #1a3d66;
-
-  /* skrytí mimo hover sidebaru */
   opacity: 0;
   max-width: 0;
   transform: translateX(-4px);
   pointer-events: none;
-
-  padding: 2px 0;              /* bez bubliny, aby layout nelítal */
-  border-radius: 8px;
-
-  transition:
-    opacity 160ms ease,
-    max-width 160ms ease,
-    transform 160ms ease,
-    background-color 140ms ease,
-    color 140ms ease,
-    padding 140ms ease;
+  padding: 2px 0;
 }
 
-/* Jakmile je sidebar rozšířen (hover na sidebar), text se ukáže */
 .sidebar:hover .label {
   opacity: 1;
   max-width: 160px;
@@ -86,14 +67,6 @@
   pointer-events: auto;
 }
 
-/* „Bublina“ pro text při hoveru nad celou položkou */
-.menuItem:hover .label {
-  background-color: #cfe2ff;
-  color: #0d47a1;
-  padding: 2px 8px;            /* bublina kolem textu */
-}
-
-/* Pravá část: šipka – defaultně skrytá jako text */
 .right {
   display: flex;
   align-items: center;
@@ -118,7 +91,6 @@
   transform: rotate(90deg);
 }
 
-/* Volitelný submenu (zůstává funkční při rozšíření) */
 .menuItemWrapper {
   position: relative;
 }
