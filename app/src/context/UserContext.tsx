@@ -5,7 +5,12 @@ type UserContextType = {
   setUserID: (userID: number | null) => void;
 };
 
-const UserContext = createContext<UserContextType | null>(null);
+const defaultUserCtx: UserContextType = {
+  userID: null,
+  setUserID: () => { /* no-op */ },
+}
+
+const UserContext = createContext<UserContextType>(defaultUserCtx);
 
 const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [userID, setUserID] = useState<number | null>(null);
@@ -17,4 +22,4 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
   );
 }
 
-export default UserProvider
+export { UserProvider, UserContext }

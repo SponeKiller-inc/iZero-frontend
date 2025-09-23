@@ -4,13 +4,11 @@ import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 
 import { AuthService } from '@/services/AuthService';
-import { LocalStorageService } from '@/services/localStorage';
 
 const useLogout = () => {
   const { t } = useTranslation('common');
   const navigate = useNavigate();
-  const localStorage = useMemo(() => new LocalStorageService(), []);
-  const authService = useMemo(() => new AuthService(localStorage), [localStorage]);
+  const authService = useMemo(() => new AuthService(), []);
 
   const logout = async () => {
     const isLoggedOut = await authService.logout()
