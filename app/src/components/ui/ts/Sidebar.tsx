@@ -1,51 +1,53 @@
+import useModule from '@/hooks/useModule';
+import LoadingSpinner from './LoadingSpinner';
+
 import styles from '../css/Sidebar.module.css'
 
-const Sidebar = () => {
+const Sidebar: React.FC = () => {
+  const { modules, loading } = useModule();
+
+  const getIconPath = (group: string) => {
+    return `/icons/modules/${group.toLowerCase()}.svg`;
+  };
+
+  const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.src = '/icons/modules/default.png';
+  };
+
   return (
     <nav className={styles.sidebar}>
+      {loading && <LoadingSpinner />}
+
       <ul className={styles.list}>
-        <li className={styles.menuItemWrapper}>
-          <div className={styles.menuItem}>
-            <div className={styles.left}>
-              <span className={styles.icon}>⚙️</span>
-              <span className={styles.label}>Nastavení</span>
+        {Object.entries(modules ?? {}).map(([group, items]) => (
+          <li key={group} className={styles.menuItemWrapper}>
+            <div className={styles.menuItem}>
+              <div className={styles.left}>
+                <img
+                  src={getIconPath(group)}
+                  alt={group}
+                  className={styles.icon}
+                  onError={handleImgError}
+                />
+                <span className={styles.label}>{group}</span>
+              </div>
+              <div className={styles.right}>
+                <span className={styles.arrow}>▶</span>
+              </div>
             </div>
-            <div className={styles.right}>
-              <span className={styles.arrow}>▶</span>
-            </div>
-          </div>
 
-          {/* volitelný dropdown */}
-          <ul className={styles.submenu}>
-            <li>Profil</li>
-            <li>Účty</li>
-            <li>Oznámení</li>
-          </ul>
-        </li>
-
-        {/* další položky – jen pro ukázku */}
-        <li className={styles.menuItem}>
-          <div className={styles.left}>
-            <span className={styles.icon}>📊</span>
-            <span className={styles.label}>Přehled</span>
-          </div>
-          <div className={styles.right}>
-            <span className={styles.arrow}>▶</span>
-          </div>
-        </li>
-
-        <li className={styles.menuItem}>
-          <div className={styles.left}>
-            <span className={styles.icon}>🧾</span>
-            <span className={styles.label}>Reporty</span>
-          </div>
-          <div className={styles.right}>
-            <span className={styles.arrow}>▶</span>
-          </div>
-        </li>
+            <ul className={styles.submenu}>
+              {(items).map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </li>
+        ))}
       </ul>
     </nav>
   );
 };
+
+
 
 export default Sidebar;

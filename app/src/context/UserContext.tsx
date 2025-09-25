@@ -1,19 +1,19 @@
 import React, { createContext, useState } from "react";
 
 type UserContextType = {
-  userID: number | null;
-  setUserID: (userID: number | null) => void;
+  userID: number;
+  setUserID: (userID: number) => void;
 };
 
 const defaultUserCtx: UserContextType = {
-  userID: null,
+  userID: 0,
   setUserID: () => { /* no-op */ },
 }
 
 const UserContext = createContext<UserContextType>(defaultUserCtx);
 
 const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  const [userID, setUserID] = useState<number | null>(null);
+  const [userID, setUserID] = useState<number>(0);
 
   return (
     <UserContext.Provider value={{ userID, setUserID }}>

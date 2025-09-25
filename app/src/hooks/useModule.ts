@@ -1,33 +1,39 @@
-import { useNavigate } from "react-router-dom";
-import { useContext, useMemo } from "react";
+import { useContext, useMemo, useState, useEffect } from "react";
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 
 import { ModuleService } from '@/services/ModuleService';
 import { UserContext } from '@/context/UserContext';
+import getAxiosStatus from "@/utils/getAxiosStatus";
 
 const useModule = () => {
   const { t } = useTranslation('other/module');
-  const navigate = useNavigate();
   const moduleService = useMemo(() => new ModuleService(), []);
   const { userID } = useContext(UserContext);
 
-  const getModules = async () => {
-        const isSuccess = false;
-    if (userID !== null) {
-        try:
-            const modules = await moduleService.get_user_modules(userID)
-        catch (AxiosError):
-    }
-    if (isLoggedOut) {
-      toast.success(t('getUserModules.success'));
-      navigate('/login')
-    } else {
-      toast.error(t('getUserModules.error'))
-    }
-  };
+  const [modules, setModules] = useState<Record<string, string[]> | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  return logout;
-}
+  useEffect(() => {
+    const fetchModules = async () => {
+      try {
+        const data = await moduleService.get_user_modules(userID);
+        setModules(data);
+        toast.success(t('getUserModules.http.200'));
+      } catch (error: unknown) {
+        const status = getAxiosStatus(error);
+        toast.error(t(`getUserModules.http.${status}`));
+      } finally {
+        setLoading(false);
+      }
+    };
 
-export default useLogout
+    if (userID) {
+      fetchModules();
+    }
+  }, [userID, moduleService, t]);
+
+  return { modules, loading };
+};
+
+export default useModule;

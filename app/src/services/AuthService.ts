@@ -41,7 +41,7 @@ export class AuthService {
    */
   private isAuthenticated(): boolean {
     const payload = getJwtTokenData<tokenPayload>()
-    if (payload != null) {
+    if (payload !== null) {
       if (payload.exp * 1000 > Date.now()) {
         // AccessToken exists and is valid
         return true

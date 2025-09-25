@@ -4,7 +4,6 @@ import useLogout from '@/hooks/useLogout';
 import styles from '../css/UserProfile.module.css'
 
 const UserProfile = () => {
-    const logout = useLogout();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -16,7 +15,7 @@ const UserProfile = () => {
             {isMenuOpen && (
                 <div className={styles.dropdownMenu}>
                     <ul>
-                        <li onClick={logout}>Logout</li>
+                        <li onClick={useLogout}>Logout</li>
                     </ul>
                 </div>
             )}

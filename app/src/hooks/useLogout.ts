@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 
@@ -10,18 +10,22 @@ const useLogout = () => {
   const navigate = useNavigate();
   const authService = useMemo(() => new AuthService(), []);
 
-  const logout = async () => {
-    const isLoggedOut = await authService.logout()
 
-    if (isLoggedOut) {
-      toast.success(t('logout.success'));
-      navigate('/login')
-    } else {
-      toast.error(t('logout.error'))
-    }
+  const logout = () => {
+    authService.logout().then((isLoggedOut) => {
+      if (isLoggedOut) {
+        toast.success(t('logout.success'));
+        navigate('/login');
+      } else {
+        toast.error(t('logout.error'));
+      }
+    }).catch(() => {
+      toast.error(t('logout.error'));
+    });
   };
 
-  return logout;
-}
+    logout();
+
+};
 
 export default useLogout
