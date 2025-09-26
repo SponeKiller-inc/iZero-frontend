@@ -11,7 +11,7 @@ const Sidebar: React.FC = () => {
   };
 
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = '/icons/modules/default.png';
+    e.currentTarget.src = '/icons/modules/default.svg';
   };
 
   return (
@@ -19,6 +19,22 @@ const Sidebar: React.FC = () => {
       {loading && <LoadingSpinner />}
 
       <ul className={styles.list}>
+        {/* Dashboard */}
+        <li className={styles.menuItemWrapper}>
+            <div className={styles.menuItem}>
+              <div className={styles.left}>
+                <img
+                  src={getIconPath('dashboard')}
+                  alt={'dashboard'}
+                  className={styles.icon}
+                  onError={handleImgError}
+                />
+                <span className={styles.label}>Dashboard</span>
+              </div>
+            </div>
+          </li>
+
+        {/* Modules */}
         {Object.entries(modules ?? {}).map(([group, items]) => (
           <li key={group} className={styles.menuItemWrapper}>
             <div className={styles.menuItem}>

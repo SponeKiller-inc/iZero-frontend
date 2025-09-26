@@ -1,4 +1,4 @@
-import UserProvider from "./UserContext";
+import { UserProvider } from "./UserContext";
 
 const AppProviders = ({ children }: { children: React.ReactNode }) => {
   return (

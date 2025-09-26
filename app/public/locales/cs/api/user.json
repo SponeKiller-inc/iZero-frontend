@@ -1,0 +1,9 @@
+{
+    "getUserModules": {
+        "http": {
+            "200": "Moduly úspěšně načteny",
+            "404": "Moduly nenalezeny",
+            "500": "Něco se pokazilu, zkuste později znovu"
+        }
+    }
+}

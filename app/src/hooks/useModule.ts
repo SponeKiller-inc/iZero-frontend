@@ -7,7 +7,7 @@ import { UserContext } from '@/context/UserContext';
 import getAxiosStatus from "@/utils/getAxiosStatus";
 
 const useModule = () => {
-  const { t } = useTranslation('other/module');
+  const { t } = useTranslation('api/user');
   const moduleService = useMemo(() => new ModuleService(), []);
   const { userID } = useContext(UserContext);
 
