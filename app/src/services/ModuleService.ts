@@ -18,7 +18,7 @@ export class ModuleService {
    * @throws {AxiosError} 500 - Internal server error
    */
   public async get_user_modules(userID: number): Promise<Record<string, Array<string>>> {
-    const response = await this.api.get(`${userID}/modules`)
+    const response = await this.api.get(`users/${userID}/modules`)
     return response.data
   }
 }

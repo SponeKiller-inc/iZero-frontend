@@ -18,7 +18,7 @@ const useAuth = () => {
         const checkAuth = async () => {
             const isValid = await authService.ensureAuthenticated();
             setIsAuthenticated(isValid);
-            if (userID === null) {
+            if (userID === 0) {
                 const payload = getJwtTokenData<tokenPayload>()
                 if (payload !== null) {
                     setUserID(payload.user_id)

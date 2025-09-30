@@ -28,9 +28,9 @@ const useModule = () => {
       }
     };
 
-    if (userID) {
-      fetchModules();
-    }
+
+    fetchModules();
+    
   }, [userID, moduleService, t]);
 
   return { modules, loading };

@@ -1,6 +1,6 @@
 .sidebar {
   background-color: #f6fcff;
-  width: 56px;
+  width: 62px;
   transition: width 180ms ease;
   overflow: hidden;
   height: 100%;
@@ -47,8 +47,8 @@
 }
 
 .icon {
-  font-size: 1.15rem;
-  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
 }
 
 .label {

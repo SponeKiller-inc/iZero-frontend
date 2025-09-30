@@ -5,5 +5,5 @@
     "register": "Registration",
     "login": "Login",
     "*": "Not Found",
-    "dashboard": "dashboard"
+    "dashboard": "Dashboard"
 }
