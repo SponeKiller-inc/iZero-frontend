@@ -28,7 +28,7 @@ export class LoginService {
     
     // Store access token to localstorage
     this.storage.save(
-      { [LoginService.TOKEN_KEY]: data.token_type + ' ' + data.access_token}
+      { [LoginService.TOKEN_KEY]: data.access_token}
     );
   }
 
@@ -40,7 +40,7 @@ export class LoginService {
 
     // Store access token to localstorage
     this.storage.save(
-      { [LoginService.TOKEN_KEY]: data.token_type + ' ' + data.access_token}
+      { [LoginService.TOKEN_KEY]: data.access_token}
     );
   }
 }

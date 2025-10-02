@@ -4,14 +4,15 @@ import { useTranslation } from 'react-i18next';
 
 import { ModuleService } from '@/services/ModuleService';
 import { UserContext } from '@/context/UserContext';
+import { ModuleContext } from "@/context/ModuleContext";
 import getAxiosStatus from "@/utils/getAxiosStatus";
 
 const useModule = () => {
   const { t } = useTranslation('api/user');
   const moduleService = useMemo(() => new ModuleService(), []);
   const { userID } = useContext(UserContext);
+  const { modules, setModules} = useContext(ModuleContext)
 
-  const [modules, setModules] = useState<Record<string, string[]> | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,10 +29,12 @@ const useModule = () => {
       }
     };
 
-
-    fetchModules();
-    
-  }, [userID, moduleService, t]);
+    if (Object.keys(modules).length === 0) {
+      fetchModules();
+    } else {
+      setLoading(false);
+    }
+  }, [userID, moduleService, t, modules, setModules]);
 
   return { modules, loading };
 };

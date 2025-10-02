@@ -21,6 +21,9 @@ apiSecure.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
 
+  // Allow cookies
+  config.withCredentials = true
+
   // Transfer data from camelCase to snake_case
   const contentType = config.headers?.['Content-Type'];
   

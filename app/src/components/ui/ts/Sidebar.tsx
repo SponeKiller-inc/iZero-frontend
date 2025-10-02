@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import useModule from '@/hooks/useModule';
 import LoadingSpinner from './LoadingSpinner';
-
 import styles from '../css/Sidebar.module.css'
 
 const Sidebar: React.FC = () => {
   const { modules, loading } = useModule();
+  const { t } = useTranslation('components/Sidebar');
 
   const getIconPath = (group: string) => {
     return `/icons/modules/${group.toLowerCase()}.svg`;
@@ -13,7 +16,7 @@ const Sidebar: React.FC = () => {
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = '/icons/modules/default.svg';
   };
-
+  
   return (
     <nav className={styles.sidebar}>
       {loading && <LoadingSpinner />}
@@ -29,7 +32,7 @@ const Sidebar: React.FC = () => {
                   className={styles.icon}
                   onError={handleImgError}
                 />
-                <span className={styles.label}>Dashboard</span>
+                  <Link to={'/dashboard'} className={styles.label}>{t('dashboard')}</Link>
               </div>
             </div>
           </li>
@@ -45,7 +48,7 @@ const Sidebar: React.FC = () => {
                   className={styles.icon}
                   onError={handleImgError}
                 />
-                <span className={styles.label}>{group}</span>
+                <span className={styles.label}>{t(`${group}.main`)}</span>
               </div>
               <div className={styles.right}>
                 <span className={styles.arrow}>▶</span>
@@ -54,7 +57,9 @@ const Sidebar: React.FC = () => {
 
             <ul className={styles.submenu}>
               {(items).map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item}>
+                  <Link to={`/${item}`} className={styles.label}>{t(`${group}.${item}`)}</Link>
+                </li>
               ))}
             </ul>
           </li>
