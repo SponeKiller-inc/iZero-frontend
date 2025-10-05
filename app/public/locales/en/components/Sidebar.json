@@ -1,0 +1,7 @@
+{
+    "dashboard": "Dashboard",
+    "catalog": {
+        "main": "Catalog",
+        "customer": "Customers"
+    }
+}

@@ -2,19 +2,29 @@ import axios from 'axios';
 import decamelizeKeys from 'decamelize-keys';
 import camelizeKeys from 'camelcase-keys';
 
-import { refreshToken } from '../utils/rqUtils.js';
-import { logout } from '../utils/logout.js';
+import { LocalStorageService, LOCAL_STORAGE } from './localStorage.js';
+import { AuthService } from './AuthService.js';
+
+const localStorage = new LocalStorageService();
+const authService = new AuthService();
 
 const apiSecure = axios.create({
   baseURL: import.meta.env.VITE_API_URL+import.meta.env.VITE_API_ROUTER,
 });
 
 apiSecure.interceptors.request.use((config) => {
-  const token = sessionStorage.getItem('accessToken');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+  // Just make sure, that accesstoken is refreshed (if was expired)
+  authService.ensureAuthenticated()
+  const accessToken = localStorage.load<string>(LOCAL_STORAGE.accessToken.key)
+  
+  if (accessToken) {
+    config.headers.Authorization = `Bearer ${accessToken}`;
   }
 
+  // Allow cookies
+  config.withCredentials = true
+
+  // Transfer data from camelCase to snake_case
   const contentType = config.headers?.['Content-Type'];
   
   if (contentType === 'application/json' && typeof config.data === 'object') {
@@ -26,52 +36,20 @@ apiSecure.interceptors.request.use((config) => {
 
 apiSecure.interceptors.response.use(
   (response) => {
-        const contentType = response.headers?.['Content-Type'];
-      
-        if (contentType === 'application/json' && typeof response.data === 'object') {
-          response.data = camelizeKeys(response.data, { deep: true });
-        }
-      
-        return response;
-  },
-  async (error) => {
-    const originalRequest = error.config;
-
+    // Transfer data from snake_case to camelCase
+    const contentType = response.headers?.['Content-Type'];
     
-    if (error.response?.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true;
-
-      try {
-        const refreshResponse = await refreshToken(); 
-
-        if (!refreshResponse) {
-          logout();
-          return Promise.reject(error);
-        }
-
-        const newToken = sessionStorage.getItem('accessToken');
-        originalRequest.headers.Authorization = `Bearer ${newToken}`;
-
-        const response = await apiSecure(originalRequest);
-        
-        const contentType = response.headers?.['Content-Type'];
-            
-        if (contentType === 'application/json' && typeof response.data === 'object') {
-          response.data = camelizeKeys(response.data, { deep: true });
-        }
-
-        return response;
-      } catch {
-        if (error.response?.status === 401) {
-          logout();
-        }
-        
-        return Promise.reject(error);
-      }
+    if (contentType === 'application/json' && typeof response.data === 'object') {
+      response.data = camelizeKeys(response.data, { deep: true });
     }
-
+  
+    return response;
+  },
+  (error) => {
     if (error.response?.status === 401) {
-      logout();
+      // Remove auth data + redirect to login page
+      authService.logout()
+      window.location.href = '/login';
     }
 
     return Promise.reject(error);

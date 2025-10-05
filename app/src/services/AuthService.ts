@@ -1,15 +1,22 @@
-import { jwtDecode } from "jwt-decode";
+import { AxiosInstance } from 'axios';
 
 import api from './api';
 import { LocalStorageService, LOCAL_STORAGE } from '@/services/localStorage';
-import { JwtTokenPayload } from '@/types/auth';
+import getJwtTokenData from '@/utils/getJwtTokenData';
+
+interface tokenPayload {
+  exp: number
+}
 
 export class AuthService {
   private storage: LocalStorageService;
   private static readonly TOKEN_KEY = LOCAL_STORAGE.accessToken.key;
+  private api: AxiosInstance
+
   
-  constructor(storage: LocalStorageService) {
-    this.storage = storage;
+  constructor() {
+    this.storage = new LocalStorageService();
+    this.api = api;
   }
   /**
    * Ensures that the user is authenticated.
@@ -33,9 +40,8 @@ export class AuthService {
    * @returns {boolean} True if token is valid, otherwise false
    */
   private isAuthenticated(): boolean {
-    const accessToken = this.storage.load<string>(AuthService.TOKEN_KEY)
-    if (accessToken != null) {
-      const payload = jwtDecode<JwtTokenPayload>(accessToken)
+    const payload = getJwtTokenData<tokenPayload>()
+    if (payload !== null) {
       if (payload.exp * 1000 > Date.now()) {
         // AccessToken exists and is valid
         return true
@@ -54,7 +60,7 @@ export class AuthService {
    */
   private async refreshToken(): Promise<boolean> {
     try {
-      await api.post('/token/refresh');
+      await this.api.post('/token/refresh');
       return true;
     } catch {
       return false;

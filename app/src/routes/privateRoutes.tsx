@@ -3,5 +3,11 @@ import Dashboard from '@/features/dashboard/Dashboard';
 
 
 export const privateRoutes: Route[] = [
-    {path: '/dashboard',  element: <Dashboard />},
+    {
+        path: '/dashboard',  
+        element: <Dashboard />, 
+        handle: {
+            label: 'dashboard'
+        }
+    },
 ];

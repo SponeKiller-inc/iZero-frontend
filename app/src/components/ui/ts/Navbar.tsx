@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -8,13 +8,13 @@ import LanguageSelector from './LanguageSelector';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { t } = useTranslation('components/Navbar');
+  const { t } = useTranslation('other/appRoutes');
   const links = [
-    { label: t('Home'), to: '/' },
-    { label: t('About'), to: '/about' },
-    { label: t('Contact'), to: '/contact' },
-    { label: t('Register'), to: '/register' },
-    { label: t('Login'), to: '/login' }
+    { label: t('homepage'), to: '/' },
+    { label: t('about'), to: '/about' },
+    { label: t('contact'), to: '/contact' },
+    { label: t('register'), to: '/register' },
+    { label: t('login'), to: '/login' }
   ];
 
 

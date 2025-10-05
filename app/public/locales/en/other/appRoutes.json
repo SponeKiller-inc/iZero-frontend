@@ -1,0 +1,9 @@
+{
+    "homepage": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "register": "Registration",
+    "login": "Login",
+    "*": "Not Found",
+    "dashboard": "Dashboard"
+}

@@ -1,44 +1,10 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import ModuleLayout from '@/components/ui/ts/ModuleLayout';
 
-import { logout } from '../../utils/logout';
 import styles from './Dashboard.module.css';
 
-const Dashboard = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const navigate = useNavigate();
-
-  const toggleMenu = (): void => setIsMenuOpen((v) => !v);
-
+const DashboardPage = () => {
   return (
-    <div className={styles.dashboardPage}>
-      <header className={styles.dashboardHeader}>
-        <h1>Dashboard</h1>
-
-        <div className={styles.userMenu}>
-          <button
-            type="button"
-            className={styles.userIcon}
-            onClick={toggleMenu}
-            aria-haspopup="menu"
-            aria-expanded={isMenuOpen}
-          >
-            👤
-          </button>
-
-          {isMenuOpen && (
-            <div className={styles.dropdownMenu} role="menu">
-              <ul>
-                <li role="menuitem" onClick={() => logout()}>
-                  Logout
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
-      </header>
-
-      <main className={styles.dashboardContent}>
+      <div className={styles.dashboardContent}>
         <section className={styles.dashboardWidgets}>
           <div className={styles.widget}>
             <h2>Welcome Back!</h2>
@@ -55,17 +21,15 @@ const Dashboard = () => {
             <p>Your stats will appear here.</p>
           </div>
         </section>
-      </main>
-
-      <div className={styles.startChat}>
-        <button
-          className={styles.chatButton}
-          onClick={() => navigate('/chat')}
-        >
-          Go to Chat
-        </button>
       </div>
-    </div>
+  );
+};
+
+const Dashboard = () => {
+  return (
+    <ModuleLayout>
+      <DashboardPage />
+    </ModuleLayout>
   );
 };
 

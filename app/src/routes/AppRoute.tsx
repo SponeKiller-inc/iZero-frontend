@@ -1,11 +1,10 @@
-import { useRoutes } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
 import { Route } from './types'
 import { publicRoutes } from './publicRoutes';
 import { privateRoutes } from './privateRoutes';
 import SecureRoute from './SecureRoute';
 
-export const AppRoutes = () => {
 
   const protectedRoutes = privateRoutes.map((route: Route) => ({
     ...route,
@@ -14,8 +13,8 @@ export const AppRoutes = () => {
     ),
   }));
 
-  const routing = useRoutes([...publicRoutes, ...protectedRoutes]);
+  const routing = createBrowserRouter([...publicRoutes, ...protectedRoutes]);
   
-  return routing;
-};
+  export default routing
+
 

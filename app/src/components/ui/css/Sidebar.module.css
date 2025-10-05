@@ -1,0 +1,130 @@
+.sidebar {
+  background-color: #f6fcff;
+  width: 62px;
+  transition: width 180ms ease;
+  overflow: visible;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 8px 6px;
+}
+
+.sidebar:hover {
+  width: 240px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.menuItem:hover {
+  background: #e6f0fa;
+  box-shadow: 0 1px 3px rgba(13, 71, 161, 0.15);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 8px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.label {
+  font-size: 0.95rem;
+  opacity: 0;
+  max-width: 0;
+  transform: translateX(-4px);
+  pointer-events: none;
+  padding: 2px 0;
+}
+
+
+.sidebar:hover .label {
+  color: black;
+  opacity: 1;
+  max-width: 160px;
+  transform: translateX(0);
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+
+  opacity: 0;
+  max-width: 0;
+  transform: translateX(4px);
+  transition: opacity 160ms ease, max-width 160ms ease, transform 160ms ease;
+}
+
+.sidebar:hover .right {
+  opacity: 1;
+  max-width: 24px;
+  transform: translateX(0);
+}
+
+.arrow {
+  font-size: 0.8rem;
+  transition: transform 160ms ease;
+}
+
+.menuItemWrapper {
+  position: relative;
+}
+
+.menuItemWrapper:hover .arrow {
+  transform: rotate(90deg);
+}
+
+.submenu {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+
+  display: none;
+  min-width: 160px;
+
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  padding: 6px 0;
+  list-style: none;
+  z-index: 100;
+}
+
+.menuItemWrapper:hover .submenu {
+  display: block;
+}
+
+.submenu li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.submenu li:hover {
+  background: #f2f7ff;
+}

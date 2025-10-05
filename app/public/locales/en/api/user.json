@@ -1,0 +1,9 @@
+{
+    "getUserModules": {
+        "http": {
+            "200": "Modules successfully loaded",
+            "404": "Modules not found",
+            "500": "Something went wrong, please try again later"
+        }
+    }
+}
