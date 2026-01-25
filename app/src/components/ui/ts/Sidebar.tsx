@@ -58,7 +58,7 @@ const Sidebar: React.FC = () => {
             <ul className={styles.submenu}>
               {(items).map((item) => (
                 <li key={item}>
-                  <Link to={`/${item}`} className={styles.label}>{t(`${group}.${item}`)}</Link>
+                  <Link to={`/${group}/${item}`} className={styles.label}>{t(`${group}.${item}`)}</Link>
                 </li>
               ))}
             </ul>

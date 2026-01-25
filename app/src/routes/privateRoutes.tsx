@@ -1,5 +1,6 @@
 import { Route } from './types'
 import Dashboard from '@/features/dashboard/Dashboard';
+import CustomerCatalog from '@/features/catalog/customer/Customer';
 
 
 export const privateRoutes: Route[] = [
@@ -8,6 +9,13 @@ export const privateRoutes: Route[] = [
         element: <Dashboard />, 
         handle: {
             label: 'dashboard'
+        }
+    },
+    {
+        path: '/catalog/customer',  
+        element: <CustomerCatalog />, 
+        handle: {
+            label: 'Customer Catalog'
         }
     },
 ];

@@ -1,0 +1,134 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: system-ui, sans-serif;
+}
+
+.header {
+  background: #f5f6f8;
+  border-radius: 8px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.headRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)) 80px;
+  gap: 6px;
+  font-weight: bolder;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  padding: 10px 12px;
+
+  background:#f6fcff;
+  border-radius: 10px;
+}
+
+.headCell {
+  text-align: left;
+}
+
+.headActionsSpacer {
+  pointer-events: none;
+}
+
+.main {
+  display: block;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  text-align: left;
+
+  padding: 10px 12px;
+  background: #ffffff;
+  border: 1px solid #e6eaf0;
+  border-radius: 10px;
+
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+}
+
+.row:hover {
+  background: #eef2f7;
+  border-color: #d7deea;
+  cursor: pointer;
+}
+
+.row:active {
+  transform: translateY(1px);
+}
+
+.grid{
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 6px;
+}
+
+.cell {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actions{
+  width: 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+}
+
+.iconButton {
+  font-size: 1.25rem;
+  width: 34px;
+  height: 34px;
+
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.iconButton:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.iconButton:active {
+  transform: scale(0.96);
+}
+
+.add {
+  color: #2e7d32;
+}
+
+.edit {
+  color: #1565c0;
+}
+
+.delete {
+  color: #c62828;
+}
