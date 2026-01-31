@@ -4,37 +4,24 @@ import Fuse from "fuse.js";
 import styles from '../css/SearchBar.module.css'
 
 type SearchBarProps = {
-  items: string[][];
-  onResults: (results: string[][]) => void;
-};
-
-type IndexedRow = {
-  row: string[];
-  search: string;
+  items: Array<{ [key: string]: string }>;
+  onResults: (results: Array<{ [key: string]: string }>) => void;
 };
 
 export default function SearchBar({ items, onResults }: SearchBarProps) {
   const [q, setQ] = useState('');
 
-  // Transform input to object
-  const indexed = useMemo<IndexedRow[]>(
-    () =>
-      items.map(row => ({
-        row,
-        search: row.join(" ").toLowerCase(),
-      })),
-    [items]
-  );
+  const keys = Object.keys(items[0]);
 
   // Make Fuse
   const fuse = useMemo(
     () =>
-      new Fuse<IndexedRow>(indexed, {
-        keys: ["search"],
+      new Fuse<{[key: string]: string}>(items, {
+        keys: keys,
         threshold: 0.45,
         ignoreLocation: true,
       }),
-    [indexed]
+    [items]
   );
 
 
@@ -42,7 +29,7 @@ export default function SearchBar({ items, onResults }: SearchBarProps) {
   const results = useMemo(() => {
     if (!q.trim()) return items;
 
-    return fuse.search(q).map(r => r.item.row);
+    return fuse.search(q).map(result => result.item);
   }, [q, fuse, items]);
 
 

@@ -9,12 +9,15 @@ import SearchBar from './SearchBar';
 import styles from '../css/CrudLayout.module.css';
 
 interface CrudProps {
-  header: string[];
-  data: Array<string[]>;
+  data: Array<{ [key: string]: string }>;
+  setShowAdd: (isAdding: boolean) => void;
+  setShowEdit: (isEditing: boolean) => void;
+  setShowDelete: (isDeleting: boolean) => void;
 }
 
-const CrudLayout: React.FC<CrudProps> = ({ header, data }) => {
-  const [results, setResults] = useState<Array<string[]>>([[]]);
+const CrudLayout: React.FC<CrudProps> = ({ data, setShowAdd, setShowEdit, setShowDelete }) => {
+  const [results, setResults] = useState<Array<{[key: string]: string}>>([{}]);
+  const header = Object.keys(data[0]);
 
   return (
     <ModuleLayout>
@@ -22,7 +25,11 @@ const CrudLayout: React.FC<CrudProps> = ({ header, data }) => {
         <header className={styles.header}>
           <nav className={styles.toolbar}>
             <SearchBar items={data} onResults={setResults}/>
-            <button className={`${styles.iconButton} ${styles.add}`} type="button">
+            <button 
+              className={`${styles.iconButton} ${styles.add}`} 
+              type="button" 
+              onClick={() => setShowAdd(true)}
+            >
               <IoAddCircleSharp />
             </button>
           </nav>
@@ -50,7 +57,10 @@ const CrudLayout: React.FC<CrudProps> = ({ header, data }) => {
                   <button
                     className={`${styles.iconButton} ${styles.edit}`}
                     type="button"
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowEdit(true);
+                    }}
                   >
                     <FaEdit />
                   </button>
@@ -58,7 +68,10 @@ const CrudLayout: React.FC<CrudProps> = ({ header, data }) => {
                   <button
                     className={`${styles.iconButton} ${styles.delete}`}
                     type="button"
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={(e) =>   {
+                      e.stopPropagation();
+                      setShowDelete(true);
+                    }}
                   >
                     <BsFillTrash3Fill />
                   </button>
