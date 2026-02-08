@@ -8,14 +8,16 @@ export const privateRoutes: Route[] = [
         path: '/dashboard',  
         element: <Dashboard />, 
         handle: {
-            label: 'dashboard'
+            label: 'Dashboard',
+            entityType: 'dashboard'
         }
     },
     {
         path: '/catalog/customer',  
         element: <CustomerCatalog />, 
         handle: {
-            label: 'Customer Catalog'
+            label: 'Customer Catalog',
+            entityType: 'customer'
         }
     },
 ];

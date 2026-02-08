@@ -47,7 +47,7 @@ const CrudLayout: React.FC<CrudProps> = ({ data, setShowAdd, setShowEdit, setSho
             {results.map((row, rIndex) => (
               <li className={styles.row} key={rIndex}>
                 <div className={styles.grid}>
-                  {row.map((value, cIndex) => (
+                  {Object.values(row).map((value, cIndex) => (
                     <div className={styles.cell} key={cIndex}>
                       {value}
                     </div>

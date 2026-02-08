@@ -5,6 +5,7 @@ export interface Route {
   element: ReactElement;
   handle: {
     label: string
+    entityType: string
   };
 }
 

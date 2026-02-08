@@ -10,7 +10,7 @@ interface EditLayoutProps {
   setShowEdit: (isEditing: boolean) => void;
 }
 
-const EditLayout: React.FC<EditLayoutProps> = ({ 
+export const EditLayout: React.FC<EditLayoutProps> = ({ 
   children, 
   onSave, 
   setShowEdit,
@@ -55,5 +55,3 @@ const { t } = useTranslation('components/EditLayout');
     </div>
   );
 };
-
-export default EditLayout;
