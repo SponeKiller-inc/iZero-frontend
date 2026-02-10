@@ -2,5 +2,6 @@ export const CrudMode = {
   VIEW: 'view',
   EDIT: 'edit',
   DELETE: 'delete',
-  CREATE: 'create'
+  ADD: 'add'
 } as const;
+

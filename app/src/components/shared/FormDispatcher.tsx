@@ -1,18 +1,7 @@
 import { useMatches, UIMatch } from 'react-router-dom';
-import { pascalCase } from "change-case";
 
 import { CrudModeType } from '@/types/crud';
-
-import { EditCustomer } from '@/features/catalog/customer/ts/EditCustomer';
-
-const FORM_MATRIX: Record<string, Record<CrudModeType, React.FC<any>>> = {
-  Customer: {
-    //create: AddCustomer,
-    edit: EditCustomer,
-    //view: ViewCustomer,
-    //delete: DeleteCustomer
-  },
-}
+import { FORM_MATRIX } from '@/constants/form';
 
 interface EntityFormLoaderProps {
   crudMode: CrudModeType;
@@ -20,14 +9,15 @@ interface EntityFormLoaderProps {
 
 type MatchEntityType = UIMatch<unknown, {entityType: string}>;
 
-export const EntityFormLoader: React.FC<EntityFormLoaderProps> = ( { crudMode } ) => {
+export const FormDispatcher: React.FC<EntityFormLoaderProps> = ( { crudMode } ) => {
   const matches = useMatches() as MatchEntityType[];
 
-  const entityType = [...matches].reverse().find(m => m.handle?.entityType);
+  const match = [...matches].reverse().find(m => m.handle?.entityType);
+  const entityType = match?.handle?.entityType;
 
   if (!entityType) return null;
 
-  const Component = pascalCase(crudMode + ' ' + entityType)
+  const Component = FORM_MATRIX[entityType][crudMode];
 
   return <Component />;
 };

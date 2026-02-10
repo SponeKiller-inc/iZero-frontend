@@ -17,7 +17,7 @@ export const EditCustomer: React.FC<EditCustomerProps> = ({ data }) => {
 
 
   return (
-    <EditLayout>
+    <EditLayout onSave={handleSubmit} setShowEdit={setShowEdit}>
       <CustomerDetailView 
         mode={CrudMode.EDIT} 
         formData={formData}

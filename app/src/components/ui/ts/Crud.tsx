@@ -5,17 +5,21 @@ import { FaEdit } from "react-icons/fa";
 
 import ModuleLayout from './ModuleLayout';
 import SearchBar from './SearchBar';
+import { ViewState, EditState, DeleteState, AddState } from '@/types/crud';
 
-import styles from '../css/CrudLayout.module.css';
+import styles from '../css/Crud.module.css';
 
-interface CrudProps {
+interface CrudProps extends ViewState, EditState, DeleteState, AddState {
   data: Array<{ [key: string]: string }>;
-  setShowAdd: (isAdding: boolean) => void;
-  setShowEdit: (isEditing: boolean) => void;
-  setShowDelete: (isDeleting: boolean) => void;
 }
 
-const CrudLayout: React.FC<CrudProps> = ({ data, setShowAdd, setShowEdit, setShowDelete }) => {
+const Crud: React.FC<CrudProps> = ({
+  data,
+  setShowAdd,
+  setShowEdit,
+  setShowDelete,
+  setShowView,
+}) => {
   const [results, setResults] = useState<Array<{[key: string]: string}>>([{}]);
   const header = Object.keys(data[0]);
 
@@ -45,7 +49,13 @@ const CrudLayout: React.FC<CrudProps> = ({ data, setShowAdd, setShowEdit, setSho
         <main className={styles.main}>
           <ul className={styles.rows}>
             {results.map((row, rIndex) => (
-              <li className={styles.row} key={rIndex}>
+              <li 
+                className={styles.row}
+                key={rIndex}
+                onClick={() => {
+                  setShowView(true)
+                }}
+              >
                 <div className={styles.grid}>
                   {Object.values(row).map((value, cIndex) => (
                     <div className={styles.cell} key={cIndex}>
@@ -85,4 +95,4 @@ const CrudLayout: React.FC<CrudProps> = ({ data, setShowAdd, setShowEdit, setSho
   );
 };
 
-export default CrudLayout;
+export default Crud;
