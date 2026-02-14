@@ -1,6 +1,6 @@
 import { AxiosInstance } from 'axios';
 
-import apiSecure from './apiSecure';
+import { apiSecure } from './apiSecure';
 
 
 export class ModuleService {

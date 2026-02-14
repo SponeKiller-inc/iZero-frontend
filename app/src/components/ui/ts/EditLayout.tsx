@@ -2,12 +2,13 @@ import { ReactNode } from 'react';
 import { BoxArrowLeft } from 'react-bootstrap-icons';
 import { useTranslation } from 'react-i18next';
 
+import { EditState } from '@/types/crud';
+
 import styles from './EditLayout.module.css';
 
-interface EditLayoutProps {
+interface EditLayoutProps extends EditState {
   children: ReactNode;
   onSave: () => void;
-  setShowEdit: (isEditing: boolean) => void;
 }
 
 export const EditLayout: React.FC<EditLayoutProps> = ({ 
@@ -15,8 +16,8 @@ export const EditLayout: React.FC<EditLayoutProps> = ({
   onSave, 
   setShowEdit,
 }) => {
+  const { t } = useTranslation('components/EditLayout');
 
-const { t } = useTranslation('components/EditLayout');
   const handleSaveButton = () => {
     onSave();
     setShowEdit(false);
@@ -27,8 +28,7 @@ const { t } = useTranslation('components/EditLayout');
   };
 
   return (
-    <div className={styles.container}>
-      
+    <div className={styles.container}>      
       <header className={styles.header}>
         <span className={styles.headerTitle}>{t('edit')}</span>
         
@@ -51,7 +51,6 @@ const { t } = useTranslation('components/EditLayout');
           {t('save')}
         </button>
       </footer>
-
     </div>
   );
 };

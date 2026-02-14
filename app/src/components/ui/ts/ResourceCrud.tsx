@@ -23,10 +23,10 @@ const ResourceCrud: React.FC<{ data: Array<{ [key: string]: string }> }> = ({ da
           setShowDelete={setShowDelete}
         />
       )}
-      {showView && <FormDispatcher crudMode={CrudMode.VIEW} />}
-      {showAdd && <FormDispatcher crudMode={CrudMode.ADD} />}
-      {showEdit && <FormDispatcher crudMode={CrudMode.EDIT} />}
-      {showDelete && <FormDispatcher crudMode={CrudMode.DELETE} />}
+      {showView && <FormDispatcher crudMode={CrudMode.VIEW} setShow={setShowView} />}
+      {showAdd && <FormDispatcher crudMode={CrudMode.ADD} setShow={setShowAdd} />}
+      {showEdit && <FormDispatcher crudMode={CrudMode.EDIT} setShow={setShowEdit} />}
+      {showDelete && <FormDispatcher crudMode={CrudMode.DELETE} setShow={setShowDelete} />}
     </>
   );
 };

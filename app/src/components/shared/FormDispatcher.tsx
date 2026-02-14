@@ -5,11 +5,12 @@ import { FORM_MATRIX } from '@/constants/form';
 
 interface EntityFormLoaderProps {
   crudMode: CrudModeType;
+  setShow: (state: boolean) => void;
 }
 
 type MatchEntityType = UIMatch<unknown, {entityType: string}>;
 
-export const FormDispatcher: React.FC<EntityFormLoaderProps> = ( { crudMode } ) => {
+export const FormDispatcher: React.FC<EntityFormLoaderProps> = ( { crudMode, setShow } ) => {
   const matches = useMatches() as MatchEntityType[];
 
   const match = [...matches].reverse().find(m => m.handle?.entityType);
@@ -19,5 +20,5 @@ export const FormDispatcher: React.FC<EntityFormLoaderProps> = ( { crudMode } ) 
 
   const Component = FORM_MATRIX[entityType][crudMode];
 
-  return <Component />;
+  return <Component setShow={setShow} />;
 };

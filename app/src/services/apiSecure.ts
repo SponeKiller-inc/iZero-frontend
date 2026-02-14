@@ -8,7 +8,7 @@ import { AuthService } from './AuthService.js';
 const localStorage = new LocalStorageService();
 const authService = new AuthService();
 
-const apiSecure = axios.create({
+export const apiSecure = axios.create({
   baseURL: import.meta.env.VITE_API_URL+import.meta.env.VITE_API_ROUTER,
 });
 
@@ -55,5 +55,3 @@ apiSecure.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-export default apiSecure;
