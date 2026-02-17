@@ -7,5 +7,4 @@ export interface CustomerData {
 
 export interface CustomerRecord extends CustomerData {
     id: number;
-    data: CustomerData;
 }

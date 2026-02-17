@@ -1,0 +1,8 @@
+{
+    "http": {
+        "200": "Customer updated successfully",
+        "400": "Customer update failed",
+        "404": "Customer not found",
+        "500": "Server error"
+    } 
+}

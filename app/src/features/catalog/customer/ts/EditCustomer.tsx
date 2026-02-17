@@ -1,13 +1,13 @@
-import { useEditCustomer } from './hooks/useEditCustomer';
+import { useEditCustomer } from '../hook/useEditCustomer';
 import { EditLayout } from '@/components/ui/ts/EditLayout';
-import CustomerDetailView from './CustomerDetailView';
+import { CustomerDetailView } from './CustomerDetailView';
 import { CrudMode } from '@/constants/crud';
 
 import { EditState } from "@/types/crud";
-import { CustomerData } from '../types';
+import { CustomerRecord } from '../types';
 
 export interface EditCustomerProps extends EditState {
-    data: CustomerData;
+    data: CustomerRecord;
 }
 
 export const EditCustomer: React.FC<EditCustomerProps> = ({ data, setShowEdit }) => {

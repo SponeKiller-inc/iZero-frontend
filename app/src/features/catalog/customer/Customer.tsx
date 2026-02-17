@@ -1,10 +1,22 @@
-import Crud from '@/components/ui/ts/Crud';
+import ResourceCrud from '@/components/ui/ts/ResourceCrud';
 
 
 const CustomerCatalog = () => {
-  const header = ['client', 'id', 'address', 'something'];
-  const data = [['simposon', '1999', 'zajdassssssssssssssssssssss', 'something'], ['simposonssssssssssssssssssssssssssssss', '1999', 'kralik', 'something']];
-  return <Crud header={header} data={data} />;
+  const data = [
+  {
+    "client": "simposon",
+    "id": "1999",
+    "address": "zajdassssssssssssssssssssss",
+    "something": "something"
+  },
+  {
+    "client": "simposonssssssssssssssssssssssssssssss",
+    "id": "1999",
+    "address": "kralik",
+    "something": "something"
+  }
+];
+  return <ResourceCrud data={data} />;
 };
 
 export default CustomerCatalog;

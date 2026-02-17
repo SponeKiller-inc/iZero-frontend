@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { Field } from '@/components/ui/ts/Field';
 import { DetailViewProps } from '@/types/crud'; 
 
-import styles from './CustomerDetailView.module.css';
+import styles from '../css/CustomerDetailView..module.css';
 
 
-const CustomerDetailView: React.FC<DetailViewProps> = ({ formData, mode, onChange }) => {
+export const CustomerDetailView: React.FC<DetailViewProps> = ({ formData, mode, onChange }) => {
     const { t } = useTranslation('pages/catalog/customer');
 
     return (
@@ -63,5 +63,3 @@ const CustomerDetailView: React.FC<DetailViewProps> = ({ formData, mode, onChang
       </>
   );
 };
-
-export default CustomerDetailView;

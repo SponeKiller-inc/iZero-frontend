@@ -1,0 +1,8 @@
+{
+    "http": {
+        "200": "Zákazní úspěšně změněn",
+        "400": "Chyba při změně zákazníka",
+        "404": "Zákazník nenalezen",
+        "500": "Chyba na straně serveru, zkuste znovu později"
+    } 
+}

@@ -1,7 +1,7 @@
 import { CrudMode } from '@/constants/crud';
 import { CrudModeType } from '@/types/crud';
 
-import styles from './Field.module.css';
+import styles from '../css/Field.module.css';
 
 interface FieldProps {
   label: string;

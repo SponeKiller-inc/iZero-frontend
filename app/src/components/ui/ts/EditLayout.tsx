@@ -1,14 +1,14 @@
-import { ReactNode } from 'react';
+import { ReactNode, MouseEvent } from 'react';
 import { BoxArrowLeft } from 'react-bootstrap-icons';
 import { useTranslation } from 'react-i18next';
 
 import { EditState } from '@/types/crud';
 
-import styles from './EditLayout.module.css';
+import styles from '../css/EditLayout.module.css';
 
 interface EditLayoutProps extends EditState {
   children: ReactNode;
-  onSave: () => void;
+  onSave: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const EditLayout: React.FC<EditLayoutProps> = ({ 
@@ -18,8 +18,8 @@ export const EditLayout: React.FC<EditLayoutProps> = ({
 }) => {
   const { t } = useTranslation('components/EditLayout');
 
-  const handleSaveButton = () => {
-    onSave();
+  const handleSaveButton = (e: MouseEvent<HTMLButtonElement>) => {
+    onSave(e);
     setShowEdit(false);
   };
 

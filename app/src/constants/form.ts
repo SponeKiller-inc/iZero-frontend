@@ -6,7 +6,7 @@ import { CrudModeType } from '@/types/crud';
 
 export const FORM_MATRIX: Record<string, Record<CrudModeType, React.FC<any>>> = {
   Customer: {
-    create: AddCustomer,
+    add: AddCustomer,
     edit: EditCustomer,
     view: ViewCustomer,
     delete: DeleteCustomer
