@@ -1,13 +1,14 @@
 import { ReactNode, MouseEvent } from 'react';
-import { BoxArrowLeft } from 'react-bootstrap-icons';
 import { useTranslation } from 'react-i18next';
 
-import { EditState } from '@/types/crud';
+import { CrudLayout } from './CrudLayout';
 
 import styles from '../css/EditLayout.module.css';
 
-interface EditLayoutProps extends EditState {
+
+interface EditLayoutProps {
   children: ReactNode;
+  setShowEdit: (state: boolean) => void;
   onSave: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -28,29 +29,19 @@ export const EditLayout: React.FC<EditLayoutProps> = ({
   };
 
   return (
-    <div className={styles.container}>      
-      <header className={styles.header}>
-        <span className={styles.headerTitle}>{t('edit')}</span>
-        
-        <button 
-          className={styles.iconBtn} 
-          onClick={handleExit} 
-          aria-label={t('exit')}
-        >
-          <BoxArrowLeft size={24} />
-        </button>
-      </header>
-
-      <main className={styles.content}>{children}</main>
-
-      <footer className={styles.footer}>
+    <CrudLayout
+      actionType={t('edit')}
+      onExit={handleExit}
+      footerActions={
         <button 
           className={styles.editButton} 
           onClick={handleSaveButton}
         >
-          {t('save')}
+          {t('editButton')}
         </button>
-      </footer>
-    </div>
+      }
+    >
+      {children}
+    </CrudLayout>
   );
 };

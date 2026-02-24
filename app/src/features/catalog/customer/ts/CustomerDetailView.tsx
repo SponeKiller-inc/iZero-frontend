@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Field } from '@/components/ui/ts/Field';
 import { DetailViewProps } from '@/types/crud'; 
 
-import styles from '../css/CustomerDetailView..module.css';
+import styles from '../css/CustomerDetailView.module.css';
 
 
 export const CustomerDetailView: React.FC<DetailViewProps> = ({ formData, mode, onChange }) => {
@@ -27,10 +27,6 @@ export const CustomerDetailView: React.FC<DetailViewProps> = ({ formData, mode, 
             name="surname"
             mode={mode}
           />
-        </div>
-
-        {/* Identification */}
-        <div className={styles.row}>
           <Field 
             label={t('birthday')} 
             value={formData.birthday} 
@@ -58,6 +54,7 @@ export const CustomerDetailView: React.FC<DetailViewProps> = ({ formData, mode, 
             type="email"
             name="email"
             mode={mode}
+            length="medium"
           />
         </div>
       </>

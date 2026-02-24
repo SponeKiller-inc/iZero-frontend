@@ -20,7 +20,7 @@ const SecureNavbar: React.FC = () => {
     <div className={styles.navbar}>
       <div className={styles.container}>
         <Link to='/dashboard' className={styles.logo}>
-          <img src='iZero-logo.png' width='100' alt='Project Zero logo'></img>
+          <img src='/iZero-logo.png' width='100' alt='Project Zero logo'></img>
         </Link>
         <div className={styles.label}>
           { label }

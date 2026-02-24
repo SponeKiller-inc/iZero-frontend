@@ -10,25 +10,20 @@ export interface DetailViewProps {
 }
 
 export interface CrudHandler<T> {
-  (data: T): {
+  (data: T, setItems: (items: T[]) => void): {
     formData: T;
     handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
     handleSubmit: (e: MouseEvent<HTMLButtonElement>) => void;
   };
 }
 
-export interface ViewState {
-  setShowView: (state: boolean) => void;
+export interface CrudItem {
+  [key: string]: string;
 }
 
-export interface EditState {
-  setShowEdit: (state: boolean) => void;
-}
-
-export interface DeleteState {
-  setShowDelete: (state: boolean) => void;
-}
-
-export interface AddState {
-  setShowAdd: (state: boolean) => void;
+export interface CrudState {
+  onView: (data: CrudItem) => void;
+  onEdit: (data: CrudItem) => void;
+  onDelete: (data: CrudItem) => void;
+  onAdd: () => void;
 }

@@ -9,6 +9,7 @@ interface FieldProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   name: string;
   type?: string;
+  length?: "small" | "medium" | "large";
   mode: CrudModeType;
 }
 
@@ -17,8 +18,9 @@ export const Field: React.FC<FieldProps> = ({
   value, 
   onChange, 
   name, 
+  mode,
   type = "text", 
-  mode 
+  length = "small",
 }) => {
   const isEditable = mode === CrudMode.EDIT;
   const isDeleteMode = mode === CrudMode.DELETE;
@@ -27,13 +29,14 @@ export const Field: React.FC<FieldProps> = ({
     <div className={styles.col}>
       <label className={styles.label}>{label}</label>
       <input 
-        className={`${styles.input} ${!isEditable ? styles.inputReadOnly : ''}`}
+        className={`${styles.input} ${!isEditable ? styles.inputReadOnly : ''} ${styles[length]}`}
         type={type}
         name={name}
         value={value || ''}
         onChange={isEditable ? onChange : undefined}
         readOnly={!isEditable}
         disabled={isDeleteMode} 
+        size={50}
       />
     </div>
   );

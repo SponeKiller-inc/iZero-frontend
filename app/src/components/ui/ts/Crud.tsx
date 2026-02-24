@@ -5,22 +5,22 @@ import { FaEdit } from "react-icons/fa";
 
 import ModuleLayout from './ModuleLayout';
 import SearchBar from './SearchBar';
-import { ViewState, EditState, DeleteState, AddState } from '@/types/crud';
+import { CrudItem, CrudState } from '@/types/crud';
 
 import styles from '../css/Crud.module.css';
 
-interface CrudProps extends ViewState, EditState, DeleteState, AddState {
-  data: Array<{ [key: string]: string }>;
+interface CrudProps extends CrudState  {
+  data: Array<CrudItem>;
 }
 
 const Crud: React.FC<CrudProps> = ({
   data,
-  setShowAdd,
-  setShowEdit,
-  setShowDelete,
-  setShowView,
+  onAdd,
+  onEdit,
+  onDelete,
+  onView,
 }) => {
-  const [results, setResults] = useState<Array<{[key: string]: string}>>([{}]);
+  const [results, setResults] = useState<Array<CrudItem>>([{}]);
   const header = Object.keys(data[0]);
 
   return (
@@ -32,7 +32,7 @@ const Crud: React.FC<CrudProps> = ({
             <button 
               className={`${styles.iconButton} ${styles.add}`} 
               type="button" 
-              onClick={() => setShowAdd(true)}
+              onClick={() => onAdd()}
             >
               <IoAddCircleSharp />
             </button>
@@ -52,9 +52,7 @@ const Crud: React.FC<CrudProps> = ({
               <li 
                 className={styles.row}
                 key={rIndex}
-                onClick={() => {
-                  setShowView(true)
-                }}
+                onClick={() => onView(row)}
               >
                 <div className={styles.grid}>
                   {Object.values(row).map((value, cIndex) => (
@@ -69,7 +67,7 @@ const Crud: React.FC<CrudProps> = ({
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
-                      setShowEdit(true);
+                      onEdit(row);
                     }}
                   >
                     <FaEdit />
@@ -80,7 +78,7 @@ const Crud: React.FC<CrudProps> = ({
                     type="button"
                     onClick={(e) =>   {
                       e.stopPropagation();
-                      setShowDelete(true);
+                      onDelete(row);
                     }}
                   >
                     <BsFillTrash3Fill />

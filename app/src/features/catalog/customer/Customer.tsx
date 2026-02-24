@@ -1,19 +1,21 @@
-import ResourceCrud from '@/components/ui/ts/ResourceCrud';
+import { ResourceCrud } from '@/components/ui/ts/ResourceCrud';
 
 
 const CustomerCatalog = () => {
   const data = [
   {
-    "client": "simposon",
-    "id": "1999",
-    "address": "zajdassssssssssssssssssssss",
-    "something": "something"
+    "name": "simposon",
+    "surname": "1999",
+    "birthday": "zajdassssssssssssssssssssss",
+    "phone": "something",
+    "email": "something"
   },
   {
-    "client": "simposonssssssssssssssssssssssssssssss",
-    "id": "1999",
-    "address": "kralik",
-    "something": "something"
+    "name": "simposonssssssssssssssssssssssssssssss",
+    "surname": "1999",
+    "birthday": "kralik",
+    "phone": "something",
+    "email": "something"
   }
 ];
   return <ResourceCrud data={data} />;

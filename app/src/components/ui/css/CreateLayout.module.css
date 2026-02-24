@@ -1,0 +1,16 @@
+.createButton {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  min-width: 140px;
+  transition: background 0.2s;
+}
+
+.createButton:hover {
+  background-color: #218838;
+}

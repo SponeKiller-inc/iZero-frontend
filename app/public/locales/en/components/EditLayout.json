@@ -1,5 +1,4 @@
 {
-    "save": "Save",
-    "exit": "Exit",
-    "edit": "Edit"
+    "edit": "Edit",
+    "editButton": "Save changes"
 }
