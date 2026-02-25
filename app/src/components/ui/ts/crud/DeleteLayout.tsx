@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { CrudLayout } from './CrudLayout';
 
-import styles from '../css/DeleteLayout.module.css';
+import styles from '@/components/ui/css/crud/DeleteLayout.module.css';
 
 
 interface DeleteLayoutProps {

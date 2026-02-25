@@ -1,4 +1,4 @@
-import { ResourceCrud } from '@/components/ui/ts/ResourceCrud';
+import { ResourceCrud } from '@/components/ui/ts/crud/ResourceCrud';
 
 
 const CustomerCatalog = () => {

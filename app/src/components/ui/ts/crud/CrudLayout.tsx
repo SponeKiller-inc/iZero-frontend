@@ -1,14 +1,14 @@
 import { ReactNode } from 'react';
 import { BoxArrowLeft } from 'react-bootstrap-icons';
 
-import ModuleLayout from './ModuleLayout';
+import ModuleLayout from '../ModuleLayout';
 
-import styles from '../css/CrudLayout.module.css';
+import styles from '@/components/ui/css/crud/CrudLayout.module.css';
 
 interface CrudLayoutProps {
   actionType: string;
   children: ReactNode;
-  footerActions: ReactNode;
+  footerActions?: ReactNode;
   onExit: () => void;
 }
 
@@ -35,9 +35,11 @@ export const CrudLayout: React.FC<CrudLayoutProps> = ({
 
         <main className={styles.content}>{children}</main>
 
-        <footer className={styles.footer}>
-          {footerActions}
-        </footer>
+        {footerActions && (
+          <footer className={styles.footer}>
+            {footerActions}
+          </footer>
+        )}
       </div>
     </ModuleLayout>
   );

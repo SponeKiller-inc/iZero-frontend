@@ -1,26 +1,27 @@
-import { useEditCustomer } from '../hook/useEditCustomer';
-import { EditLayout } from '@/components/ui/ts/EditLayout';
+import { useDeleteCustomer } from '../hook/useDeleteCustomer';
+import { DeleteLayout } from '@/components/ui/ts/crud/DeleteLayout';
 import { CustomerDetailView } from './CustomerDetailView';
 import { CrudMode } from '@/constants/crud';
 
-import { EditState } from "@/types/crud";
 import { CustomerRecord } from '../types';
 
-export interface EditCustomerProps extends EditState {
-    data: CustomerRecord;
+export interface DeleteCustomerProps {
+  setShow: (state: boolean) => void;
+  setItems: (items: CustomerRecord[]) => void;
+  initialData: CustomerRecord;
 }
 
-export const DeleteCustomer: React.FC<EditCustomerProps> = ({ data, setShowEdit }) => {
-  const { handleSubmit, handleChange, formData } = useEditCustomer(data);
+export const DeleteCustomer: React.FC<DeleteCustomerProps> = ({ setShow, setItems, initialData }) => {
+  const { handleSubmit, handleChange, formData } = useDeleteCustomer(initialData, setItems);
 
 
   return (
-    <EditLayout onSave={handleSubmit} setShowEdit={setShowEdit}>
-      <CustomerDetailView 
-        mode={CrudMode.EDIT} 
+    <DeleteLayout onDelete={handleSubmit} setShowDelete={setShow}>
+      <CustomerDetailView
+        mode={CrudMode.DELETE}
         formData={formData}
         onChange={handleChange}
       />
-    </EditLayout>
+    </DeleteLayout>
   );
 };

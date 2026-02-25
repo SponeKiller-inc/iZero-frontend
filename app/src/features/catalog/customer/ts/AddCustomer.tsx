@@ -1,26 +1,28 @@
-import { useEditCustomer } from '../hook/useEditCustomer';
-import { EditLayout } from '@/components/ui/ts/EditLayout';
+import { useAddCustomer } from '../hook/useAddCustomer';
+import { AddLayout } from '@/components/ui/ts/crud/AddLayout';
 import { CustomerDetailView } from './CustomerDetailView';
 import { CrudMode } from '@/constants/crud';
 
-import { EditState } from "@/types/crud";
 import { CustomerRecord } from '../types';
 
-export interface EditCustomerProps extends EditState {
-    data: CustomerRecord;
+
+export interface AddCustomerProps {
+  setShow: (state: boolean) => void;
+  setItems: (items: CustomerRecord[]) => void;
+  initialData: CustomerRecord;
 }
 
-export const AddCustomer: React.FC<EditCustomerProps> = ({ data, setShowEdit }) => {
-  const { handleSubmit, handleChange, formData } = useEditCustomer(data);
+export const AddCustomer: React.FC<AddCustomerProps> = ({ setShow, setItems, initialData }) => {
+  const { handleSubmit, handleChange, formData } = useAddCustomer(initialData, setItems);
 
 
   return (
-    <EditLayout onSave={handleSubmit} setShowEdit={setShowEdit}>
-      <CustomerDetailView 
-        mode={CrudMode.EDIT} 
+    <AddLayout onAdd={handleSubmit} setShowAdd={setShow}>
+      <CustomerDetailView
+        mode={CrudMode.ADD}
         formData={formData}
         onChange={handleChange}
       />
-    </EditLayout>
+    </AddLayout>
   );
 };

@@ -1,4 +1,4 @@
-.createButton {
+.addButton {
   background-color: #28a745;
   color: white;
   border: none;
@@ -11,6 +11,6 @@
   transition: background 0.2s;
 }
 
-.createButton:hover {
+.addButton:hover {
   background-color: #218838;
 }

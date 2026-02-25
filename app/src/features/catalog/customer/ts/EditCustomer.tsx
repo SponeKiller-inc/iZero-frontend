@@ -1,5 +1,5 @@
 import { useEditCustomer } from '../hook/useEditCustomer';
-import { EditLayout } from '@/components/ui/ts/EditLayout';
+import { EditLayout } from '@/components/ui/ts/crud/EditLayout';
 import { CustomerDetailView } from './CustomerDetailView';
 import { CrudMode } from '@/constants/crud';
 
@@ -17,8 +17,8 @@ export const EditCustomer: React.FC<EditCustomerProps> = ({ setShow, setItems, i
 
   return (
     <EditLayout onSave={handleSubmit} setShowEdit={setShow}>
-      <CustomerDetailView 
-        mode={CrudMode.EDIT} 
+      <CustomerDetailView
+        mode={CrudMode.EDIT}
         formData={formData}
         onChange={handleChange}
       />

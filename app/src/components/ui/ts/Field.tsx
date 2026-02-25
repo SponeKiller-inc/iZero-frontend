@@ -6,7 +6,7 @@ import styles from '../css/Field.module.css';
 interface FieldProps {
   label: string;
   value: string | number | undefined;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   name: string;
   type?: string;
   length?: "small" | "medium" | "large";

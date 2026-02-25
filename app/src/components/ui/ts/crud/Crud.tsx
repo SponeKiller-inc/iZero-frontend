@@ -3,11 +3,11 @@ import { IoAddCircleSharp } from "react-icons/io5";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
 
-import ModuleLayout from './ModuleLayout';
-import SearchBar from './SearchBar';
+import ModuleLayout from '../ModuleLayout';
+import SearchBar from '../SearchBar';
 import { CrudItem, CrudState } from '@/types/crud';
 
-import styles from '../css/Crud.module.css';
+import styles from '@/components/ui/css/crud/Crud.module.css';
 
 interface CrudProps extends CrudState  {
   data: Array<CrudItem>;

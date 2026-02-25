@@ -6,7 +6,7 @@ export type CrudModeType = typeof CrudMode[keyof typeof CrudMode];
 export interface DetailViewProps {
   mode: CrudModeType;
   formData: any;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface CrudHandler<T> {
