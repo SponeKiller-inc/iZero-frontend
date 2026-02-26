@@ -3,9 +3,9 @@ import { CrudMode } from '@/constants/crud';
 
 export type CrudModeType = typeof CrudMode[keyof typeof CrudMode];
 
-export interface DetailViewProps {
+export interface DetailViewProps<T> {
   mode: CrudModeType;
-  formData: any;
+  formData: T;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 

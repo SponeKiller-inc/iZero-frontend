@@ -22,7 +22,7 @@ export const Field: React.FC<FieldProps> = ({
   type = "text", 
   length = "small",
 }) => {
-  const isEditable = mode === CrudMode.EDIT;
+  const isEditable = (mode === CrudMode.EDIT) || (mode === CrudMode.ADD);
   const isDeleteMode = mode === CrudMode.DELETE;
 
   return (

@@ -1,13 +1,26 @@
 import { useTranslation } from 'react-i18next';
 
 import { Field } from '@/components/ui/ts/Field';
-import { DetailViewProps } from '@/types/crud'; 
+import { DetailViewProps } from '@/types/crud';
+import { CustomerData } from '../types';
 
 import styles from '../css/CustomerDetailView.module.css';
 
 
-export const CustomerDetailView: React.FC<DetailViewProps> = ({ formData, mode, onChange }) => {
+
+export const CustomerDetailView: React.FC<DetailViewProps<CustomerData>> = ({ formData, mode, onChange }) => {
     const { t } = useTranslation('pages/catalog/customer');
+
+    if (formData == null) {
+      formData = {
+        name: '',
+        surname: '',
+        birthday: '',
+        email: '',
+        phone: '',
+        address: ''
+      }
+    }
 
     return (
       <>
