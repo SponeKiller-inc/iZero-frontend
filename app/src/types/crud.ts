@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent} from 'react';
+import { ChangeEvent, MouseEvent, Dispatch, SetStateAction } from 'react';
 import { CrudMode } from '@/constants/crud';
 
 export type CrudModeType = typeof CrudMode[keyof typeof CrudMode];
@@ -10,7 +10,7 @@ export interface DetailViewProps<T> {
 }
 
 export interface CrudHandler<T> {
-  (data: T, setItems: (items: T[]) => void): {
+  (data: T, setItems: Dispatch <SetStateAction<T[]>>): {
     formData: T;
     handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
     handleSubmit: (e: MouseEvent<HTMLButtonElement>) => void;

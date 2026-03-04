@@ -6,7 +6,7 @@ export class CustomerService {
   /**
    * Create new customer
    */
-  async create(customerData: CustomerData): Promise<CustomerRecord> {
+  async add(customerData: CustomerData): Promise<CustomerRecord> {
     const { data } = await apiSecure.post<CustomerRecord>(
       '/customers', 
       customerData,

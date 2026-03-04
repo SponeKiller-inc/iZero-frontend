@@ -7,9 +7,9 @@ import { CustomerService } from '../services/customerService';
 import { CustomerRecord } from '../types';
 import { CrudHandler } from '@/types/crud';
 
-export const useDeleteCustomer: CrudHandler<CustomerRecord> = (initialData) => {
+export const useDeleteCustomer: CrudHandler<CustomerRecord> = (initialData, setItems) => {
   const customerService = new CustomerService();
-  const { t } = useTranslation('pages/catalog/Customer');
+  const { t } = useTranslation('pages/catalog/Customer/delete');
   const [formData, setFormData] = useState(initialData);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -21,9 +21,18 @@ export const useDeleteCustomer: CrudHandler<CustomerRecord> = (initialData) => {
     e.preventDefault();
 
     try {
-      const { id, ...data} = formData
-      const updatedRecord = await customerService.update(id, data); 
-      setFormData(updatedRecord);
+      const { id } = formData
+      await customerService.delete(id);
+      setItems((prevItems: CustomerRecord[]) => prevItems.filter(item => item.id !== id));
+      setFormData({
+        id: 0,
+        name: '',
+        surname: '',
+        birthday: '',
+        email: '',
+        phone: '',
+        address: ''
+      });
 
       toast.success(t('http.200'));
     } catch (err: unknown) {

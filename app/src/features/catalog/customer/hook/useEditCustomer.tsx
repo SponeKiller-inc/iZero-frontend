@@ -7,9 +7,9 @@ import { CustomerService } from '../services/customerService';
 import { CustomerRecord } from '../types';
 import { CrudHandler } from '@/types/crud';
 
-export const useEditCustomer: CrudHandler<CustomerRecord> = (initialData) => {
+export const useEditCustomer: CrudHandler<CustomerRecord> = (initialData, setItems) => {
   const customerService = new CustomerService();
-  const { t } = useTranslation('pages/catalog/Customer');
+  const { t } = useTranslation('pages/catalog/Customer/edit');
   const [formData, setFormData] = useState(initialData);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,9 +23,10 @@ export const useEditCustomer: CrudHandler<CustomerRecord> = (initialData) => {
     try {
       const { id, ...data} = formData
       const updatedRecord = await customerService.update(id, data); 
+      setItems((prevItems: CustomerRecord[]) => prevItems.map(item => item.id === id ? { ...item, ...updatedRecord } : item));
       setFormData(updatedRecord);
 
-      toast.success(t('http.200'));
+      toast.success(t('http.201'));
     } catch (err: unknown) {
       let status = 500;
       if (isAxiosError(err)) {
