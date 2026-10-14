@@ -60,7 +60,7 @@ export class AuthService {
    */
   private async refreshToken(): Promise<boolean> {
     try {
-      await this.api.post('/token/refresh');
+      await this.api.post('/auth/token/refresh');
       return true;
     } catch {
       return false;
