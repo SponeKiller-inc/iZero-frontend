@@ -18,7 +18,7 @@ export class LoginService {
    */
   async loginLocal(userData: LoginUserDataLocal): Promise<void> {
     const { data } = await api.post<AccessTokenData>(
-      '/token/local', 
+      '/auth/token/local', 
       toUrlSearchParams(userData), {
       headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -36,7 +36,7 @@ export class LoginService {
    * Login for user which created account via Google
    */
   async loginGoogle(token: string): Promise<void> {
-    const { data } = await api.post<AccessTokenData>('/token/google', {jwt_token: token});
+    const { data } = await api.post<AccessTokenData>('/auth/token/google', {jwt_token: token});
 
     // Store access token to localstorage
     this.storage.save(
