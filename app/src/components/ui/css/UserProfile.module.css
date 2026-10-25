@@ -5,6 +5,8 @@
 
 .userIcon {
   font-size: 24px;
+  background: none;
+  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -43,4 +45,18 @@
 
 .dropdownMenu li:hover {
   background-color: #f2f2f2;
+}
+
+.dropdownMenu li:has(.menuLink) {
+  padding: 0;
+}
+
+.menuLink {
+  display: block;
+  padding: 10px 14px;
+  color: #333;
+}
+
+.menuLink:hover {
+  text-decoration: none;
 }

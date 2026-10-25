@@ -1,0 +1,17 @@
+{
+    "deleteAccount": {
+        "title": "Delete account",
+        "description": "Deleting your account ends your access to iZero.",
+        "action": "Delete account",
+        "dialog": {
+            "title": "Delete account?",
+            "consequences": "Your account will be deleted and you will lose access immediately. Your data will remain stored and your email cannot be used for a new registration. The account cannot be restored.",
+            "cancel": "Cancel",
+            "confirm": "Delete my account",
+            "close": "Close",
+            "processing": "Deleting account…",
+            "adminAccount": "An administrator account cannot be deleted.",
+            "unknown": "We couldn't confirm whether your account was deleted. Try signing in later to check."
+        }
+    }
+}

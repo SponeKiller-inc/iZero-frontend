@@ -2,5 +2,12 @@
     "logout": {
         "success": "Úspěšně odhlášen",
         "error": "Odhlášení se nepovedlo"
+    },
+    "profileMenu": {
+        "accountSettings": "Nastavení účtu"
+    },
+    "signOutNotice": {
+        "accountDeleted": "Váš účet byl smazán. Byli jste odhlášeni.",
+        "sessionEnded": "Byli jste odhlášeni. Přihlaste se prosím znovu."
     }
 }

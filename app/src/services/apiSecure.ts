@@ -4,6 +4,7 @@ import camelizeKeys from 'camelcase-keys';
 
 import { LocalStorageService, LOCAL_STORAGE } from './localStorage.js';
 import { AuthService } from './AuthService.js';
+import { requestSessionEnd, SIGN_OUT_NOTICE } from './session.js';
 
 const localStorage = new LocalStorageService();
 const authService = new AuthService();
@@ -47,9 +48,8 @@ apiSecure.interceptors.response.use(
   },
   (error) => {
     if (error.response?.status === 401) {
-      // Remove auth data + redirect to login page
-      authService.logout()
-      window.location.href = '/login';
+      // Remove auth data + redirect to login page with neutral message
+      requestSessionEnd(SIGN_OUT_NOTICE.sessionEnded)
     }
 
     return Promise.reject(error);
