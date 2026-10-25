@@ -2,5 +2,12 @@
     "logout": {
         "success": "Successfully logout",
         "error": "Unsuccessful logout"
+    },
+    "profileMenu": {
+        "accountSettings": "Account settings"
+    },
+    "signOutNotice": {
+        "accountDeleted": "Your account has been deleted. You have been signed out.",
+        "sessionEnded": "You have been signed out. Please sign in again."
     }
 }

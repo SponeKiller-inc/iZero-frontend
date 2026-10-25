@@ -1,0 +1,17 @@
+{
+    "deleteAccount": {
+        "title": "Smazat účet",
+        "description": "Smazáním účtu ztratíte přístup do iZero.",
+        "action": "Smazat účet",
+        "dialog": {
+            "title": "Smazat účet?",
+            "consequences": "Váš účet bude smazán a okamžitě ztratíte přístup. Vaše data zůstanou uložená a e-mail nepůjde použít pro novou registraci. Účet nelze obnovit.",
+            "cancel": "Zrušit",
+            "confirm": "Smazat můj účet",
+            "close": "Zavřít",
+            "processing": "Mažu účet…",
+            "adminAccount": "Účet administrátora nelze smazat.",
+            "unknown": "Nepodařilo se ověřit, zda byl účet smazán. Zkuste se později přihlásit."
+        }
+    }
+}
