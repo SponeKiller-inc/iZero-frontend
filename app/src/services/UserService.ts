@@ -14,7 +14,6 @@ export class UserService {
    * Deletes (deactivates) account of the user
    * @param {number} userID - ID of the signed-in user
    * @throws {AxiosError} 401 - User is not authenticated (e.g. account already deleted)
-   * @throws {AxiosError} 403 - User is not allowed to delete the account
    * @throws {AxiosError} 404 - User not found or already deleted
    * @throws {AxiosError} 409 - User cannot be deleted (bootstrap admin)
    */
