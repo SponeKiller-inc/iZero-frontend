@@ -16,16 +16,20 @@ const useModule = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let ignore = false;
+
     const fetchModules = async () => {
       try {
         const data = await moduleService.get_user_modules(userID);
+        if (ignore) return;
         setModules(data);
         toast.success(t('getUserModules.http.200'));
       } catch (error: unknown) {
+        if (ignore) return;
         const status = getAxiosStatus(error);
         toast.error(t(`getUserModules.http.${status}`));
       } finally {
-        setLoading(false);
+        if (!ignore) setLoading(false);
       }
     };
 
@@ -34,6 +38,8 @@ const useModule = () => {
     } else {
       setLoading(false);
     }
+
+    return () => { ignore = true; };
   }, [userID, moduleService, t, modules, setModules]);
 
   return { modules, loading };
