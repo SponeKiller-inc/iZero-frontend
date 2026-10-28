@@ -3,7 +3,7 @@
         "title": "Heslo",
         "description": "Změňte heslo, kterým se přihlašujete.",
         "action": "Změnit heslo",
-        "success": "Heslo bylo změněno. Na ostatních zařízeních jste byli odhlášeni.",
+        "success": "Heslo bylo změněno.",
         "dialog": {
             "title": "Změnit heslo",
             "currentPassword": "Současné heslo",

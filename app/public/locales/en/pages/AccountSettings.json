@@ -3,7 +3,7 @@
         "title": "Password",
         "description": "Change the password you use to sign in.",
         "action": "Change password",
-        "success": "Your password has been changed. You have been signed out on other devices.",
+        "success": "Your password has been changed.",
         "dialog": {
             "title": "Change password",
             "currentPassword": "Current password",
