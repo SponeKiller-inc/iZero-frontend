@@ -1,3 +1,20 @@
+.section {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  color: #333;
+}
+
+.section p {
+  color: #666;
+}
+
 .dialog {
   margin: auto;
   max-width: 480px;
@@ -23,6 +40,7 @@
 }
 
 .dialog .error {
+  margin: 12px 0 0;
   color: #b71c1c;
 }
 
@@ -30,9 +48,10 @@
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
+.primaryBtn,
 .dangerBtn,
 .secondaryBtn {
   padding: 10px 16px;
@@ -40,6 +59,16 @@
   font-weight: 500;
   border-radius: 4px;
   transition: background-color 0.2s ease-in-out;
+}
+
+.primaryBtn {
+  background-color: #ff8a00;
+  color: #ffffff;
+  border: none;
+}
+
+.primaryBtn:hover:not(:disabled) {
+  background-color: #e07a00;
 }
 
 .dangerBtn {
@@ -62,6 +91,7 @@
   background-color: #f2f2f2;
 }
 
+.primaryBtn:disabled,
 .dangerBtn:disabled,
 .secondaryBtn:disabled {
   background-color: #cccccc;

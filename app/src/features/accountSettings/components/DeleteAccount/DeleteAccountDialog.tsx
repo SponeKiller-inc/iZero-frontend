@@ -2,7 +2,7 @@ import { useEffect, useRef, SyntheticEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { DeleteStatus } from './types';
-import styles from './DeleteAccountDialog.module.css';
+import sharedStyles from '../shared.module.css';
 
 const DeleteAccountDialog = ({ open, status, onConfirm, onClose }: {
   open: boolean;
@@ -37,10 +37,10 @@ const DeleteAccountDialog = ({ open, status, onConfirm, onClose }: {
   return (
     <dialog
       ref={dialogRef}
-      className={styles.dialog}
+      className={sharedStyles.dialog}
       onCancel={handleCancel}
     >
-      <h2 className={styles.dialogTitle}>
+      <h2 className={sharedStyles.dialogTitle}>
         { t('deleteAccount.dialog.title') }
       </h2>
       <p>
@@ -48,15 +48,15 @@ const DeleteAccountDialog = ({ open, status, onConfirm, onClose }: {
       </p>
 
       {isFinished && (
-        <p className={styles.error}>
+        <p className={sharedStyles.error}>
           { t(`deleteAccount.dialog.${status}`) }
         </p>
       )}
 
-      <div className={styles.actions}>
+      <div className={sharedStyles.actions}>
         <button
           type="button"
-          className={styles.secondaryBtn}
+          className={sharedStyles.secondaryBtn}
           onClick={onClose}
           disabled={isProcessing}
         >
@@ -65,7 +65,7 @@ const DeleteAccountDialog = ({ open, status, onConfirm, onClose }: {
         {!isFinished && (
           <button
             type="button"
-            className={styles.dangerBtn}
+            className={sharedStyles.dangerBtn}
             onClick={onConfirm}
             disabled={isProcessing}
           >

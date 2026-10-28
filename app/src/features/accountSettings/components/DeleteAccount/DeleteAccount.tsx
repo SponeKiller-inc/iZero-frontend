@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import DeleteAccountDialog from './DeleteAccountDialog';
 import useDeleteAccount from './hooks/useDeleteAccount';
 
-import styles from './DeleteAccount.module.css';
+import sharedStyles from '../shared.module.css';
 
 const DeleteAccount = () => {
   const { t } = useTranslation('pages/AccountSettings');
@@ -19,14 +19,14 @@ const DeleteAccount = () => {
   const closeDialog = () => setIsDialogOpen(false);
 
   return (
-    <section className={styles.section}>
-      <h2 className={styles.sectionTitle}>
+    <section className={sharedStyles.section}>
+      <h2 className={sharedStyles.sectionTitle}>
         { t('deleteAccount.title') }
       </h2>
       <p>{ t('deleteAccount.description') }</p>
       <button
         type="button"
-        className={styles.dangerBtn}
+        className={sharedStyles.dangerBtn}
         onClick={openDialog}
       >
         { t('deleteAccount.action') }

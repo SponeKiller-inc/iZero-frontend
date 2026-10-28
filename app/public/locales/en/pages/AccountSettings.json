@@ -1,4 +1,28 @@
 {
+    "changePassword": {
+        "title": "Password",
+        "description": "Change the password you use to sign in.",
+        "action": "Change password",
+        "success": "Your password has been changed.",
+        "dialog": {
+            "title": "Change password",
+            "currentPassword": "Current password",
+            "newPassword": "New password",
+            "passwordConfirmation": "Confirm new password",
+            "rules": "8–128 characters, different from your current password.",
+            "cancel": "Cancel",
+            "confirm": "Change password",
+            "processing": "Changing password…"
+        },
+        "errors": {
+            "required": "Fill in this field.",
+            "length": "The password must have 8–128 characters.",
+            "sameAsCurrent": "The new password must differ from the current one.",
+            "mismatch": "The passwords do not match.",
+            "wrongCurrent": "The current password is incorrect.",
+            "generic": "Something went wrong. We couldn't confirm whether your password was changed. Try again later."
+        }
+    },
     "deleteAccount": {
         "title": "Delete account",
         "description": "Deleting your account ends your access to iZero.",
