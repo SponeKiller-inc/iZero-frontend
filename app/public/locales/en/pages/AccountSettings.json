@@ -20,7 +20,7 @@
             "sameAsCurrent": "The new password must differ from the current one.",
             "mismatch": "The passwords do not match.",
             "wrongCurrent": "The current password is incorrect.",
-            "generic": "Something went wrong. Your password was not changed. Try again."
+            "generic": "Something went wrong. We couldn't confirm whether your password was changed. Try again later."
         }
     },
     "deleteAccount": {

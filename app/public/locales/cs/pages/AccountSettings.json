@@ -20,7 +20,7 @@
             "sameAsCurrent": "Nové heslo se musí lišit od současného.",
             "mismatch": "Hesla se neshodují.",
             "wrongCurrent": "Současné heslo není správné.",
-            "generic": "Něco se pokazilo. Heslo nebylo změněno. Zkuste to znovu."
+            "generic": "Něco se pokazilo. Nepodařilo se ověřit, zda bylo heslo změněno. Zkuste to později znovu."
         }
     },
     "deleteAccount": {

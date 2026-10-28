@@ -66,7 +66,7 @@ const useChangePassword = () => {
           setStatus('wrongCurrent');
           break;
         default:
-          // Google account (409), network failure or unknown error - nothing was changed
+          // Google account (409), network failure or unknown error - the outcome may be unknown
           setStatus('generic');
           break;
       }
