@@ -2,9 +2,17 @@ import { jwtDecode } from "jwt-decode";
 
 import { LocalStorageService, LOCAL_STORAGE } from '@/services/localStorage';
 
+// Values of the "provider" claim in the access token
+export const AUTH_PROVIDER = Object.freeze({
+  seed: 'seed',
+  local: 'local',
+  oauth: 'oauth',
+});
+
 interface JwtPayload {
   user_id: number;
   exp: number;
+  provider: typeof AUTH_PROVIDER[keyof typeof AUTH_PROVIDER];
 };
 
 const getJwtTokenData = <T extends object = JwtPayload>(): T | null => {

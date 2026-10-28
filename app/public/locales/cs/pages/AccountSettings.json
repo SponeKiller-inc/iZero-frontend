@@ -1,4 +1,28 @@
 {
+    "changePassword": {
+        "title": "Heslo",
+        "description": "Změňte heslo, kterým se přihlašujete.",
+        "action": "Změnit heslo",
+        "success": "Heslo bylo změněno. Na ostatních zařízeních jste byli odhlášeni.",
+        "dialog": {
+            "title": "Změnit heslo",
+            "currentPassword": "Současné heslo",
+            "newPassword": "Nové heslo",
+            "passwordConfirmation": "Potvrzení nového hesla",
+            "rules": "8–128 znaků, odlišné od současného hesla.",
+            "cancel": "Zrušit",
+            "confirm": "Změnit heslo",
+            "processing": "Měním heslo…"
+        },
+        "errors": {
+            "required": "Vyplňte toto pole.",
+            "length": "Heslo musí mít 8–128 znaků.",
+            "sameAsCurrent": "Nové heslo se musí lišit od současného.",
+            "mismatch": "Hesla se neshodují.",
+            "wrongCurrent": "Současné heslo není správné.",
+            "generic": "Něco se pokazilo. Heslo nebylo změněno. Zkuste to znovu."
+        }
+    },
     "deleteAccount": {
         "title": "Smazat účet",
         "description": "Smazáním účtu ztratíte přístup do iZero.",
