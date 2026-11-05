@@ -1,4 +1,85 @@
 {
+    "details": {
+        "view": "Zobrazit",
+        "edit": "Upravit",
+        "save": "Uložit",
+        "cancel": "Zrušit",
+        "retry": "Zkusit znovu",
+        "saving": "Ukládám…",
+        "loading": "Načítám…",
+        "success": "Údaje byly uloženy.",
+        "loadError": "Údaje se nepodařilo načíst. Zkuste to znovu."
+    },
+    "personDetails": {
+        "title": "Osobní údaje",
+        "description": "Kdo jste na svých fakturách.",
+        "addTitle": "Přidat osobní údaje",
+        "editTitle": "Upravit osobní údaje",
+        "catalogueError": "Možnosti formuláře se nepodařilo načíst. Zkuste to znovu.",
+        "types": {
+            "natural_person": "Fyzická osoba",
+            "entrepreneur": "Podnikatel (OSVČ)",
+            "company": "Firma"
+        },
+        "fields": {
+            "personType": "Typ osoby",
+            "title": "Titul",
+            "firstName": "Jméno",
+            "lastName": "Příjmení",
+            "dateOfBirth": "Datum narození",
+            "name": "Název",
+            "legalForm": "Právní forma",
+            "registrationNumber": "IČO",
+            "vatNumber": "DIČ",
+            "isVatPayer": "Plátce DPH",
+            "representative": "Zástupce",
+            "phonePrefix": "Předčíslí",
+            "phone": "Telefon",
+            "email": "E-mail"
+        },
+        "errors": {
+            "required": "Toto pole je povinné.",
+            "dateOfBirth": "Zadejte platné datum narození.",
+            "age": "Musíte být starší 18 let.",
+            "registrationLength": "IČO musí mít přesně 8 číslic.",
+            "registrationCheckDigit": "IČO má neplatnou kontrolní číslici.",
+            "vatNumber": "DIČ musí začínat CZ a obsahovat 8–10 číslic.",
+            "vatPayer": "Plátce DPH musí mít vyplněné DIČ.",
+            "legalForm": "Vyberte právní formu.",
+            "phone": "Telefonní číslo musí mít 9 číslic.",
+            "email": "Zadejte platnou e-mailovou adresu.",
+            "alreadyExists": "Osobní údaje už existují. Zavřete toto okno a otevřete ho znovu.",
+            "validation": "Údaje byly odmítnuty. Zkontrolujte je a zkuste to znovu.",
+            "generic": "Něco se pokazilo. Nepodařilo se ověřit, zda byly údaje uloženy. Zkuste to později znovu."
+        }
+    },
+    "bankAccount": {
+        "title": "Bankovní účet",
+        "description": "Účet uvedený na vašich fakturách.",
+        "addTitle": "Přidat bankovní účet",
+        "editTitle": "Upravit bankovní účet",
+        "catalogueError": "Seznam bank se nepodařilo načíst. Zkuste to znovu.",
+        "fields": {
+            "bank": "Banka",
+            "bankCode": "Kód banky",
+            "ownerName": "Majitel účtu",
+            "accountPrefix": "Předčíslí",
+            "accountNumber": "Číslo účtu",
+            "iban": "IBAN"
+        },
+        "errors": {
+            "required": "Toto pole je povinné.",
+            "bankNotInCatalogue": "Vyberte banku ze seznamu.",
+            "accountPrefix": "Předčíslí může mít nejvýše 6 číslic.",
+            "accountNumber": "Číslo účtu musí mít 1–10 číslic.",
+            "iban": "Zadejte platný IBAN začínající CZ.",
+            "inconsistentAccount": "Číslo účtu, IBAN a banka si neodpovídají.",
+            "alreadyExists": "Bankovní účet už existuje. Zavřete toto okno a otevřete ho znovu.",
+            "bankNotFound": "Vybraná banka není dostupná. Vyberte jinou.",
+            "validation": "Bankovní účet byl odmítnut. Zkontrolujte údaje a zkuste to znovu.",
+            "generic": "Něco se pokazilo. Nepodařilo se ověřit, zda byl bankovní účet uložen. Zkuste to později znovu."
+        }
+    },
     "changePassword": {
         "title": "Heslo",
         "description": "Změňte heslo, kterým se přihlašujete.",

@@ -38,9 +38,9 @@ apiSecure.interceptors.request.use((config) => {
 apiSecure.interceptors.response.use(
   (response) => {
     // Transfer data from snake_case to camelCase
-    const contentType = response.headers?.['Content-Type'];
+    const contentType = response.headers?.['content-type'];
     
-    if (contentType === 'application/json' && typeof response.data === 'object') {
+    if (contentType?.includes('application/json') && response.data && typeof response.data === 'object') {
       response.data = camelizeKeys(response.data, { deep: true });
     }
   

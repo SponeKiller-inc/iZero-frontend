@@ -1,0 +1,37 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field label {
+  font-weight: 500;
+  color: #333;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+.field input[readonly] {
+  background-color: #f2f2f2;
+  color: #666;
+}
+
+.field .invalid {
+  border-color: #b71c1c;
+}
+
+/* Nested selector to override paragraph colors of the surrounding component (e.g. ".dialog p") */
+.field .fieldError {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #b71c1c;
+}
