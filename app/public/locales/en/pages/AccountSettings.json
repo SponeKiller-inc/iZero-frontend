@@ -1,4 +1,85 @@
 {
+    "details": {
+        "view": "View",
+        "edit": "Edit",
+        "save": "Save",
+        "cancel": "Cancel",
+        "retry": "Try again",
+        "saving": "Saving…",
+        "loading": "Loading…",
+        "success": "Details saved.",
+        "loadError": "Details could not be loaded. Try again."
+    },
+    "personDetails": {
+        "title": "Person details",
+        "description": "Who you are on your invoices.",
+        "addTitle": "Add person details",
+        "editTitle": "Edit person details",
+        "catalogueError": "Form options could not be loaded. Try again.",
+        "types": {
+            "natural_person": "Natural person",
+            "entrepreneur": "Entrepreneur",
+            "company": "Company"
+        },
+        "fields": {
+            "personType": "Person type",
+            "title": "Title",
+            "firstName": "First name",
+            "lastName": "Last name",
+            "dateOfBirth": "Date of birth",
+            "name": "Name",
+            "legalForm": "Legal form",
+            "registrationNumber": "Company ID",
+            "vatNumber": "VAT ID",
+            "isVatPayer": "VAT payer",
+            "representative": "Representative",
+            "phonePrefix": "Prefix",
+            "phone": "Phone",
+            "email": "Email"
+        },
+        "errors": {
+            "required": "This field is required.",
+            "dateOfBirth": "Enter a valid date of birth.",
+            "age": "You must be at least 18 years old.",
+            "registrationLength": "Company ID must have exactly 8 digits.",
+            "registrationCheckDigit": "Company ID has an invalid check digit.",
+            "vatNumber": "VAT ID must be CZ followed by 8–10 digits.",
+            "vatPayer": "A VAT payer must have a VAT ID.",
+            "legalForm": "Choose a legal form.",
+            "phone": "Phone number must have 9 digits.",
+            "email": "Enter a valid email address.",
+            "alreadyExists": "Person details already exist. Close this window and open it again.",
+            "validation": "The details were rejected. Check them and try again.",
+            "generic": "Something went wrong. We couldn't confirm whether your details were saved. Try again later."
+        }
+    },
+    "bankAccount": {
+        "title": "Bank account",
+        "description": "The account shown on your invoices.",
+        "addTitle": "Add bank account",
+        "editTitle": "Edit bank account",
+        "catalogueError": "The list of banks could not be loaded. Try again.",
+        "fields": {
+            "bank": "Bank",
+            "bankCode": "Bank code",
+            "ownerName": "Account owner",
+            "accountPrefix": "Prefix",
+            "accountNumber": "Account number",
+            "iban": "IBAN"
+        },
+        "errors": {
+            "required": "This field is required.",
+            "bankNotInCatalogue": "Choose a bank from the list.",
+            "accountPrefix": "Prefix can have at most 6 digits.",
+            "accountNumber": "Account number must have 1–10 digits.",
+            "iban": "Enter a valid IBAN starting with CZ.",
+            "inconsistentAccount": "Account number, IBAN and bank do not match.",
+            "alreadyExists": "A bank account already exists. Close this window and open it again.",
+            "bankNotFound": "The chosen bank is not available. Choose another one.",
+            "validation": "The bank account was rejected. Check the details and try again.",
+            "generic": "Something went wrong. We couldn't confirm whether your bank account was saved. Try again later."
+        }
+    },
     "changePassword": {
         "title": "Password",
         "description": "Change the password you use to sign in.",

@@ -1,4 +1,6 @@
 {
+    "yes": "Yes",
+    "no": "No",
     "logout": {
         "success": "Successfully logout",
         "error": "Unsuccessful logout"

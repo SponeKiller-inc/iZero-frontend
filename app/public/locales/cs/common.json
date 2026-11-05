@@ -1,4 +1,6 @@
 {
+    "yes": "Ano",
+    "no": "Ne",
     "logout": {
         "success": "Úspěšně odhlášen",
         "error": "Odhlášení se nepovedlo"
